@@ -130,7 +130,6 @@ export const translations = {
       ditherNotice: "Visualized via 64-level Bayer Matrix GPU Flow Field",
       dataSource: "Data synced from verified cloud provider documentation and public AI specifications.",
       backToTop: "Back to top",
-      interactiveGlobe: "Interactive Dither Globe · Drag to rotate",
     }
   },
   'pt-BR': {
@@ -264,7 +263,6 @@ export const translations = {
       ditherNotice: "Renderizado via Campo de Fluxo Shader com Matriz Bayer de 64 Níveis",
       dataSource: "Dados sincronizados de documentações oficiais e especificações abertas de IA.",
       backToTop: "Voltar ao topo",
-      interactiveGlobe: "Globo Dither Interativo · Arraste para girar",
     }
   }
 };

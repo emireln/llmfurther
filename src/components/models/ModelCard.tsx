@@ -35,8 +35,8 @@ export const ModelCard: React.FC<ModelCardProps> = ({
       onClick={() => onSelect(model)}
       className={`group relative flex flex-col justify-between rounded-lg border bg-white dark:bg-neutral-900 transition-all duration-150 cursor-pointer p-4 select-none min-w-0 h-full ${
         isCompared
-          ? 'border-[#ff3d5c] ring-1 ring-[#ff3d5c]'
-          : 'border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 hover:shadow-xs'
+          ? 'border-[#ff3d5c] ring-1 ring-[#ff3d5c] bg-neutral-50/50 dark:bg-neutral-850'
+          : 'border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50/80 dark:hover:bg-neutral-800 hover:shadow-xs'
       }`}
     >
       <div className="flex-1 min-w-0 flex flex-col">
@@ -82,7 +82,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
                   <Check className="w-3.5 h-3.5 text-white stroke-[3]" />
                 </div>
               ) : (
-                <div className="w-5 h-5 rounded flex items-center justify-center bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 text-transparent hover:border-neutral-500 dark:hover:border-neutral-400 transition-colors">
+                <div className="w-5 h-5 rounded flex items-center justify-center bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-transparent hover:bg-neutral-100 dark:hover:bg-neutral-750 transition-colors">
                   <Check className="w-3.5 h-3.5 opacity-0" />
                 </div>
               )}

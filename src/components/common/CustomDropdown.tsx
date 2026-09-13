@@ -13,6 +13,7 @@ interface CustomDropdownProps {
   selectedValue: string;
   onChange: (value: string) => void;
   icon?: React.ReactNode;
+  align?: 'left' | 'right';
   className?: string;
 }
 
@@ -22,6 +23,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
   selectedValue,
   onChange,
   icon,
+  align = 'left',
   className = '',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,14 +54,14 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
 
   return (
     <div ref={dropdownRef} className={`relative inline-block text-left ${className}`}>
-      {/* Trigger Button: Solid Styling */}
+      {/* Trigger Button: Solid Styling without white hover outline */}
       <button
         type="button"
         onClick={() => setIsOpen(prev => !prev)}
         className={`inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border text-xs font-mono transition-all select-none cursor-pointer ${
           isFiltered
             ? 'border-[#ff3d5c] bg-[#ff3d5c] text-white font-semibold shadow-xs'
-            : 'border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 dark:hover:border-neutral-500'
+            : 'border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-850 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800'
         }`}
       >
         <div className="flex items-center gap-1.5 truncate">
@@ -77,9 +79,13 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         />
       </button>
 
-      {/* Popover Menu: Solid Background & Stronger Gray Borders */}
+      {/* Popover Menu: Solid Dark Background & Consistent Gray Borders */}
       {isOpen && (
-        <div className="absolute left-0 mt-1.5 w-52 max-h-64 overflow-y-auto rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-850 shadow-xl z-50 py-1 text-xs font-mono divide-y divide-neutral-100 dark:divide-neutral-700 animate-in fade-in zoom-in-95 duration-100">
+        <div
+          className={`absolute ${
+            align === 'right' ? 'right-0' : 'left-0'
+          } mt-1.5 w-56 max-h-64 overflow-y-auto rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xl z-50 p-1 text-xs font-mono animate-in fade-in zoom-in-95 duration-100`}
+        >
           {options.map(opt => {
             const isSelected = selectedValue === opt.value;
             return (
@@ -90,10 +96,10 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                   onChange(opt.value);
                   setIsOpen(false);
                 }}
-                className={`w-full flex items-center justify-between px-3 py-2 text-left transition-colors cursor-pointer ${
+                className={`w-full flex items-center justify-between px-3 py-2 text-left rounded-md transition-colors cursor-pointer ${
                   isSelected
-                    ? 'bg-neutral-100 dark:bg-neutral-750 text-[#ff3d5c] font-bold'
-                    : 'text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-750'
+                    ? 'bg-neutral-100 dark:bg-neutral-800 text-[#ff3d5c] font-bold'
+                    : 'text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                 }`}
               >
                 <span className="truncate">{opt.label}</span>

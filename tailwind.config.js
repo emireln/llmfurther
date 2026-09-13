@@ -8,6 +8,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        neutral: {
+          750: '#2a2d34',
+          850: '#181a1f',
+        },
         accent: {
           DEFAULT: '#ff3d5c',
           hover: '#e62e4c',
