@@ -4,6 +4,10 @@ export const translations = {
     tagline: "Unrestricted Free AI Access",
     subtitle: "A curated, slop-free directory of 900+ AI models across 58 cloud providers with free tiers, daily check-ins, and developer credits.",
     searchPlaceholder: "Search models (e.g. DeepSeek R1, Llama 3.3, Gemini, Claude, Mistral)...",
+    github: {
+      button: "Star on GitHub",
+      aria: "View and star llmfurther on GitHub",
+    },
     stats: {
       models: "Models Indexed",
       providers: "Verified Providers",
@@ -23,6 +27,12 @@ export const translations = {
       showing: "Showing",
       of: "of",
       models: "models",
+      noResults: "No models match your current filters.",
+      resetFilters: "Reset all filters",
+    },
+    pagination: {
+      loadMore: "Load More",
+      remaining: "remaining",
     },
     sortOptions: {
       popular: "Most Popular",
@@ -64,6 +74,20 @@ export const translations = {
       context: "Context",
       quota: "Free Quota",
     },
+    tooltips: {
+      operational: "Operational state: Normal",
+      degraded: "Operational state: Degraded / Limited",
+      copyId: "Copy model ID for API calls",
+      copied: "Copied to clipboard",
+      visitConsole: "Open provider API console",
+      compareAdd: "Add to side-by-side comparison",
+      compareRemove: "Remove from comparison",
+      switchEn: "Switch language to English",
+      switchPt: "Mudar idioma para Português",
+      lightMode: "Switch to Light Mode",
+      darkMode: "Switch to Dark Mode",
+      backToTop: "Scroll back to top of directory",
+    },
     modal: {
       overview: "Model Overview",
       quickStart: "API Quickstart",
@@ -75,6 +99,10 @@ export const translations = {
       pythonExample: "Python (OpenAI SDK)",
       curlExample: "cURL Request",
       close: "Close",
+      maxContext: "Max Context",
+      sweBench: "SWE-bench Rating",
+      modalities: "Modalities",
+      unranked: "Unranked / General LLM",
     },
     compare: {
       title: "Side-by-Side Model Comparison",
@@ -88,11 +116,18 @@ export const translations = {
       quota: "Free Quota / Allowance",
       status: "Operational State",
       directAction: "Portal",
+      modelsSelected: "models selected",
+      open: "Open",
+      remove: "Remove model",
+      close: "Close comparison",
+      clearAll: "Clear all compared models",
     },
     footer: {
       mission: "llmfurther is an open directory dedicated to transparent AI infrastructure and developer access.",
       ditherNotice: "Visualized via 64-level Bayer Matrix GPU Flow Field",
       dataSource: "Data synced from verified cloud provider documentation and public AI specifications.",
+      backToTop: "Back to top",
+      interactiveGlobe: "Interactive Dither Globe · Drag to rotate",
     }
   },
   'pt-BR': {
@@ -100,6 +135,10 @@ export const translations = {
     tagline: "Acesso Livre e Gratuito a IA",
     subtitle: "Diretório selecionado, sem ruídos ou enrolação, de mais de 900 modelos de IA em 58 provedores em nuvem com camadas gratuitas, cotas diárias e créditos de desenvolvedor.",
     searchPlaceholder: "Buscar modelos (ex: DeepSeek R1, Llama 3.3, Gemini, Claude, Mistral)...",
+    github: {
+      button: "Favoritar no GitHub",
+      aria: "Ver e favoritar llmfurther no GitHub",
+    },
     stats: {
       models: "Modelos Catalogados",
       providers: "Provedores Verificados",
@@ -119,6 +158,12 @@ export const translations = {
       showing: "Exibindo",
       of: "de",
       models: "modelos",
+      noResults: "Nenhum modelo corresponde aos filtros selecionados.",
+      resetFilters: "Redefinir todos os filtros",
+    },
+    pagination: {
+      loadMore: "Carregar Mais",
+      remaining: "restantes",
     },
     sortOptions: {
       popular: "Mais Populares",
@@ -160,6 +205,20 @@ export const translations = {
       context: "Contexto",
       quota: "Cota Grátis",
     },
+    tooltips: {
+      operational: "Estado operacional: Normal",
+      degraded: "Estado operacional: Instável / Limitado",
+      copyId: "Copiar ID do modelo para chamadas de API",
+      copied: "Copiado para a área de transferência",
+      visitConsole: "Abrir console de desenvolvedor do provedor",
+      compareAdd: "Adicionar à comparação lado a lado",
+      compareRemove: "Remover da comparação",
+      switchEn: "Switch language to English",
+      switchPt: "Mudar idioma para Português",
+      lightMode: "Ativar Modo Claro",
+      darkMode: "Ativar Modo Escuro",
+      backToTop: "Rolar de volta ao topo do catálogo",
+    },
     modal: {
       overview: "Visão Geral",
       quickStart: "Início Rápido API",
@@ -171,6 +230,10 @@ export const translations = {
       pythonExample: "Python (SDK OpenAI)",
       curlExample: "Requisição cURL",
       close: "Fechar",
+      maxContext: "Contexto Máximo",
+      sweBench: "Avaliação SWE-bench",
+      modalities: "Modalidades",
+      unranked: "Não Classificado / LLM Geral",
     },
     compare: {
       title: "Comparação Lado a Lado de Modelos",
@@ -184,11 +247,18 @@ export const translations = {
       quota: "Cota / Limite Gratuito",
       status: "Estado Operacional",
       directAction: "Acessar",
+      modelsSelected: "modelos selecionados",
+      open: "Acessar",
+      remove: "Remover modelo",
+      close: "Fechar comparação",
+      clearAll: "Limpar todos os modelos comparados",
     },
     footer: {
       mission: "llmfurther é um diretório aberto dedicado à transparência e acesso democrático à infraestrutura de IA.",
       ditherNotice: "Renderizado via Campo de Fluxo Shader com Matriz Bayer de 64 Níveis",
       dataSource: "Dados sincronizados de documentações oficiais e especificações abertas de IA.",
+      backToTop: "Voltar ao topo",
+      interactiveGlobe: "Globo Dither Interativo · Arraste para girar",
     }
   }
 };

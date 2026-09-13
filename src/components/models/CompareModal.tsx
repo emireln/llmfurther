@@ -43,12 +43,12 @@ export const CompareModal: React.FC<CompareModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-xs"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
       onClick={onClose}
     >
       <div
         onClick={e => e.stopPropagation()}
-        className="relative w-full max-w-4xl max-h-[90vh] flex flex-col rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl overflow-hidden"
+        className="relative w-full max-w-4xl max-h-[90vh] flex flex-col rounded-xl border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl overflow-hidden"
       >
         {/* Header */}
         <div className="flex items-center justify-between p-5 border-b border-neutral-200 dark:border-neutral-800">
@@ -57,23 +57,23 @@ export const CompareModal: React.FC<CompareModalProps> = ({
               {t.compare.title}
             </h2>
             <p className="text-xs font-mono text-neutral-500 mt-0.5">
-              {models.length} / 3 models selected
+              {models.length} / 3 {t.compare.modelsSelected}
             </p>
           </div>
 
           <div className="flex items-center gap-3">
             {models.length > 0 && (
-              <Tooltip content="Clear all compared models" position="bottom">
+              <Tooltip content={t.compare.clearAll} position="bottom">
                 <button
                   onClick={onClear}
-                  className="inline-flex items-center gap-1 text-xs font-mono text-neutral-500 hover:text-accent transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-xs font-mono text-neutral-700 dark:text-neutral-300 hover:text-[#ff3d5c] hover:border-[#ff3d5c] transition-colors cursor-pointer"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                   <span>{t.compare.clearCompare}</span>
                 </button>
               </Tooltip>
             )}
-            <Tooltip content="Close comparison" position="bottom">
+            <Tooltip content={t.compare.close} position="bottom">
               <button
                 onClick={onClose}
                 className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
@@ -104,10 +104,10 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                             <div className="font-bold text-sm truncate">{m.name || m.id}</div>
                             <div className="text-[11px] text-neutral-500 font-normal">{m.provider}</div>
                           </div>
-                          <Tooltip content="Remove from comparison" position="left">
+                          <Tooltip content={t.compare.remove} position="left">
                             <button
                               onClick={() => onRemove(getModelKey(m))}
-                              className="text-neutral-400 hover:text-accent p-1 cursor-pointer"
+                              className="text-neutral-400 hover:text-[#ff3d5c] p-1 cursor-pointer"
                               aria-label="Remove model"
                             >
                               <X className="w-3.5 h-3.5" />
@@ -118,7 +118,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800/80">
+                <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800">
                   {/* Free Quota */}
                   <tr>
                     <td className="p-3 font-semibold text-neutral-500 dark:text-neutral-400">
@@ -126,7 +126,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                     </td>
                     {models.map(m => (
                       <td key={getModelKey(m)} className="p-3 text-neutral-900 dark:text-neutral-100 font-sans">
-                        <span className="font-medium text-accent">{m.freeLimit || 'Free Tier'}</span>
+                        <span className="font-medium text-[#ff3d5c]">{m.freeLimit || 'Free Tier'}</span>
                       </td>
                     ))}
                   </tr>
@@ -150,7 +150,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                     </td>
                     {models.map(m => (
                       <td key={getModelKey(m)} className="p-3 text-neutral-900 dark:text-neutral-100">
-                        {m.sweScore || 'Unranked'}
+                        {m.sweScore || t.modal.unranked}
                       </td>
                     ))}
                   </tr>
@@ -166,7 +166,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                           {m.access?.map(a => (
                             <span
                               key={a}
-                              className="px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[10px] text-neutral-700 dark:text-neutral-300 border border-neutral-200 dark:border-neutral-700"
+                              className="px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[10px] text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700 font-medium"
                             >
                               {t.accessLabels[a as keyof typeof t.accessLabels] || a}
                             </span>
@@ -207,9 +207,9 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                             href={m.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-xs text-accent hover:underline font-semibold"
+                            className="inline-flex items-center gap-1 text-xs text-[#ff3d5c] hover:underline font-semibold"
                           >
-                            <span>Open</span>
+                            <span>{t.compare.open}</span>
                             <ExternalLink className="w-3 h-3" />
                           </a>
                         )}

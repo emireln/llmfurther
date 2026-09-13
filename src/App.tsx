@@ -194,7 +194,6 @@ export const App: React.FC = () => {
 
         {/* Hero Content Overlay */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-14 text-center">
-
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-neutral-950 dark:text-white font-sans max-w-4xl mx-auto leading-tight">
             {t.tagline}
@@ -205,10 +204,10 @@ export const App: React.FC = () => {
             {t.subtitle}
           </p>
 
-          {/* Minimalist Key Metric Counters */}
+          {/* Key Metric Counters: Solid Styling (No pastel/translucent colors) */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mt-10">
-            <div className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xs text-left">
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-accent block">
+            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-[#ff3d5c] block">
                 {MODELS_DATA.length}+
               </span>
               <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider mt-1 block">
@@ -216,7 +215,7 @@ export const App: React.FC = () => {
               </span>
             </div>
 
-            <div className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100 block">
                 {PROVIDERS_DATA.length}
               </span>
@@ -225,7 +224,7 @@ export const App: React.FC = () => {
               </span>
             </div>
 
-            <div className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100 block">
                 100%
               </span>
@@ -234,8 +233,8 @@ export const App: React.FC = () => {
               </span>
             </div>
 
-            <div className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-xs text-left">
-              <span className="font-mono text-2xl sm:text-3xl font-bold text-accent block">
+            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
+              <span className="font-mono text-2xl sm:text-3xl font-bold text-[#ff3d5c] block">
                 50+
               </span>
               <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider mt-1 block">
@@ -259,9 +258,9 @@ export const App: React.FC = () => {
 
         {/* Model Cards Grid */}
         {displayedModels.length === 0 ? (
-          <div className="py-20 text-center rounded-xl border border-dashed border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900/50">
+          <div className="py-20 text-center rounded-xl border border-dashed border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900">
             <p className="font-mono text-sm text-neutral-500">
-              No models match your current filters.
+              {t.filters.noResults}
             </p>
             <button
               onClick={() =>
@@ -275,9 +274,9 @@ export const App: React.FC = () => {
                   sortBy: 'popular',
                 })
               }
-              className="mt-3 px-4 py-1.5 text-xs font-mono text-accent hover:underline font-semibold"
+              className="mt-3 px-4 py-1.5 text-xs font-mono text-[#ff3d5c] hover:underline font-semibold cursor-pointer"
             >
-              Reset all filters
+              {t.filters.resetFilters}
             </button>
           </div>
         ) : (
@@ -303,9 +302,9 @@ export const App: React.FC = () => {
           <div className="mt-10 text-center">
             <button
               onClick={() => setDisplayCount(prev => prev + 36)}
-              className="px-6 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:border-accent dark:hover:border-accent text-neutral-800 dark:text-neutral-200 font-mono text-xs font-semibold shadow-xs hover:shadow-sm transition-all"
+              className="px-6 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:border-[#ff3d5c] dark:hover:border-[#ff3d5c] text-neutral-800 dark:text-neutral-200 font-mono text-xs font-semibold shadow-xs hover:shadow-sm transition-all cursor-pointer"
             >
-              Load More ({filteredModels.length - displayedModels.length} remaining)
+              {t.pagination.loadMore} ({filteredModels.length - displayedModels.length} {t.pagination.remaining})
             </button>
           </div>
         )}
@@ -326,12 +325,12 @@ export const App: React.FC = () => {
         onClear={clearCompare}
       />
 
-      {/* Floating Compare Action Pill */}
+      {/* Floating Compare Action Pill: Solid Colors */}
       {compareList.length > 0 && !isCompareOpen && (
         <div className="fixed bottom-6 right-6 z-40">
           <button
             onClick={() => setIsCompareOpen(true)}
-            className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-accent text-white font-mono text-xs font-bold shadow-xl hover:bg-accent-hover hover:scale-105 active:scale-95 transition-all cursor-pointer border border-white/20"
+            className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#ff3d5c] text-white font-mono text-xs font-bold shadow-xl hover:bg-[#e02e4c] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#ff3d5c]"
           >
             <Scale className="w-4 h-4" />
             <span>{t.compare.title} ({compareList.length}/3)</span>

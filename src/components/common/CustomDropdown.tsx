@@ -52,14 +52,14 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
 
   return (
     <div ref={dropdownRef} className={`relative inline-block text-left ${className}`}>
-      {/* Trigger Button */}
+      {/* Trigger Button: Solid Styling */}
       <button
         type="button"
         onClick={() => setIsOpen(prev => !prev)}
-        className={`inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border text-xs font-mono transition-all select-none ${
+        className={`inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border text-xs font-mono transition-all select-none cursor-pointer ${
           isFiltered
-            ? 'border-accent bg-accent/10 text-accent font-semibold shadow-2xs'
-            : 'border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 hover:border-neutral-300 dark:hover:border-neutral-700'
+            ? 'border-[#ff3d5c] bg-[#ff3d5c] text-white font-semibold shadow-xs'
+            : 'border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 dark:hover:border-neutral-600'
         }`}
       >
         <div className="flex items-center gap-1.5 truncate">
@@ -72,14 +72,14 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         </div>
         <ChevronDown
           className={`w-3.5 h-3.5 shrink-0 transition-transform duration-150 ${
-            isOpen ? 'rotate-180 text-accent' : 'text-neutral-400'
-          }`}
+            isOpen ? 'rotate-180' : ''
+          } ${isFiltered ? 'text-white' : 'text-neutral-500'}`}
         />
       </button>
 
-      {/* Popover Menu */}
+      {/* Popover Menu: Solid Background & Borders */}
       {isOpen && (
-        <div className="absolute left-0 mt-1.5 w-52 max-h-64 overflow-y-auto rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xl z-50 py-1 text-xs font-mono divide-y divide-neutral-100 dark:divide-neutral-800/60 animate-in fade-in zoom-in-95 duration-100">
+        <div className="absolute left-0 mt-1.5 w-52 max-h-64 overflow-y-auto rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-xl z-50 py-1 text-xs font-mono divide-y divide-neutral-100 dark:divide-neutral-800 animate-in fade-in zoom-in-95 duration-100">
           {options.map(opt => {
             const isSelected = selectedValue === opt.value;
             return (
@@ -90,10 +90,10 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                   onChange(opt.value);
                   setIsOpen(false);
                 }}
-                className={`w-full flex items-center justify-between px-3 py-2 text-left transition-colors ${
+                className={`w-full flex items-center justify-between px-3 py-2 text-left transition-colors cursor-pointer ${
                   isSelected
-                    ? 'bg-accent/10 text-accent font-semibold'
-                    : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                    ? 'bg-neutral-100 dark:bg-neutral-800 text-[#ff3d5c] font-bold'
+                    : 'text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800'
                 }`}
               >
                 <span className="truncate">{opt.label}</span>
@@ -103,7 +103,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                       {opt.count}
                     </span>
                   )}
-                  {isSelected && <Check className="w-3.5 h-3.5 text-accent shrink-0" />}
+                  {isSelected && <Check className="w-3.5 h-3.5 text-[#ff3d5c] stroke-[2.5] shrink-0" />}
                 </div>
               </button>
             );

@@ -102,7 +102,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
     <div className="w-full space-y-3 mb-6">
       {/* Sleek Minimalist Tool Ribbon */}
       <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2.5">
-        {/* Search Input */}
+        {/* Search Input: Solid borders & background */}
         <div className="relative flex-1">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" />
           <input
@@ -110,12 +110,12 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             value={filters.search}
             onChange={handleSearchChange}
             placeholder={t.searchPlaceholder}
-            className="w-full pl-10 pr-9 py-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 text-xs font-mono focus:outline-none focus:border-accent dark:focus:border-accent focus:ring-1 focus:ring-accent transition-all"
+            className="w-full pl-10 pr-9 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 text-xs font-mono focus:outline-none focus:border-[#ff3d5c] dark:focus:border-[#ff3d5c] focus:ring-1 focus:ring-[#ff3d5c] transition-all"
           />
           {filters.search && (
             <button
               onClick={clearSearch}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 p-0.5"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 p-0.5 cursor-pointer"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -169,7 +169,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             <Tooltip content={t.filters.clearAll} position="top">
               <button
                 onClick={resetFilters}
-                className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-500 hover:text-accent hover:border-accent/40 transition-colors shrink-0 cursor-pointer"
+                className="p-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 hover:text-[#ff3d5c] hover:border-[#ff3d5c] transition-colors shrink-0 cursor-pointer shadow-xs"
                 aria-label={t.filters.clearAll}
               >
                 <RotateCcw className="w-3.5 h-3.5" />
@@ -190,7 +190,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             {t.filters.of} {totalModels} {t.filters.models}
           </span>
           {hasActiveFilters && (
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#ff3d5c] animate-pulse" />
           )}
         </div>
       </div>

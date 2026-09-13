@@ -5,6 +5,7 @@ import { BayerGlobe } from '../background/DitherGlobe';
 import { FooterDitherWaves } from '../background/FooterDitherWaves';
 import { CatLogo } from '../common/CatLogo';
 import { Tooltip } from '../common/Tooltip';
+import { GitHubButton } from '../common/GitHubButton';
 import { ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -29,15 +30,15 @@ export const Footer: React.FC = () => {
       {/* Footer Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
-          {/* Left Side: Dither Cat Logo + Brand + Texts in styled card */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 max-w-xl text-center sm:text-left p-6 rounded-2xl border border-neutral-200/90 dark:border-neutral-800/90 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm shadow-md">
+          {/* Left Side: Dither Cat Logo + Brand + Texts in styled solid card */}
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 max-w-xl text-center sm:text-left p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-md">
             {/* Dither Cat Logo */}
             <div className="shrink-0 p-3 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 shadow-xs">
               <CatLogo size={42} className="hover:scale-105 transition-transform" />
             </div>
 
             {/* Clean texts */}
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-2">
               <div className="flex items-center justify-center sm:justify-start gap-2 font-mono text-sm font-bold text-neutral-900 dark:text-neutral-100">
                 <span>{t.brand}</span>
                 <span className="text-neutral-300 dark:text-neutral-700">·</span>
@@ -50,14 +51,17 @@ export const Footer: React.FC = () => {
                 {t.footer.dataSource}
               </p>
 
-              <div className="flex items-center justify-center sm:justify-start gap-4 mt-2 text-xs font-mono">
-                <Tooltip content="Scroll back to top of directory" position="top">
+              {/* Action Buttons: GitHub Star + Back to top */}
+              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 mt-2">
+                <GitHubButton />
+
+                <Tooltip content={t.tooltips.backToTop} position="top">
                   <button
                     onClick={scrollToTop}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-accent hover:border-accent/40 transition-colors cursor-pointer"
+                    className="h-9 px-3 inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:text-accent hover:border-accent text-xs font-mono font-semibold transition-colors cursor-pointer shadow-xs"
                   >
-                    <span>Back to top</span>
-                    <ArrowUp className="w-3 h-3" />
+                    <span>{t.footer.backToTop}</span>
+                    <ArrowUp className="w-3.5 h-3.5" />
                   </button>
                 </Tooltip>
               </div>
@@ -66,7 +70,7 @@ export const Footer: React.FC = () => {
 
           {/* Right Side: High-Resolution Bigger Dither Globe */}
           <div className="flex flex-col items-center sm:items-end gap-2 shrink-0">
-            <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-neutral-900/95 shadow-md overflow-hidden p-1 flex items-center justify-center">
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-md overflow-hidden p-1 flex items-center justify-center">
               <BayerGlobe
                 colorA={isDark ? "#0A0A0A" : "#FFFFFF"}
                 colorB="#FF3D5C"
@@ -83,7 +87,7 @@ export const Footer: React.FC = () => {
               />
             </div>
             <span className="text-[10px] font-mono text-neutral-400 dark:text-neutral-500 tracking-wider uppercase">
-              Interactive Dither Globe · Drag to rotate
+              {t.footer.interactiveGlobe}
             </span>
           </div>
         </div>

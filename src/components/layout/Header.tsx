@@ -1,7 +1,9 @@
+import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { CatLogo } from '../common/CatLogo';
 import { Tooltip } from '../common/Tooltip';
+import { GitHubButton } from '../common/GitHubButton';
 import { Sun, Moon, Scale } from 'lucide-react';
 
 interface HeaderProps {
@@ -17,7 +19,7 @@ export const Header: React.FC<HeaderProps> = ({
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-sm transition-colors">
+    <header className="sticky top-0 z-40 w-full border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3">
@@ -29,40 +31,43 @@ export const Header: React.FC<HeaderProps> = ({
           </a>
         </div>
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {/* Compare Button */}
+        {/* Right Actions: All buttons standardized to exact same height (h-9 / 36px) */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          {/* Compare Button (When active) */}
           {compareCount > 0 && (
             <button
               onClick={onOpenCompare}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-semibold rounded border border-accent bg-accent text-white hover:bg-accent-hover shadow-sm transition-all"
+              className="h-9 px-3 inline-flex items-center justify-center gap-1.5 text-xs font-mono font-semibold rounded-lg border border-[#ff3d5c] bg-[#ff3d5c] text-white hover:bg-[#e02e4c] shadow-xs transition-colors cursor-pointer"
             >
               <Scale className="w-3.5 h-3.5" />
               <span>{t.compare.title.split(' ')[0]} ({compareCount})</span>
             </button>
           )}
 
-          {/* Language Toggle */}
-          <div className="flex items-center rounded border border-neutral-200 dark:border-neutral-800 p-0.5 bg-neutral-100 dark:bg-neutral-900 text-xs font-mono">
-            <Tooltip content="Switch language to English" position="bottom">
+          {/* GitHub Button with Dither Hover Animation */}
+          <GitHubButton />
+
+          {/* Language Switcher */}
+          <div className="h-9 flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-xs font-mono shadow-xs">
+            <Tooltip content={t.tooltips.switchEn} position="bottom">
               <button
                 onClick={() => setLanguage('en')}
-                className={`px-2 py-1 rounded transition-colors cursor-pointer ${
+                className={`h-7.5 px-2.5 rounded-md font-semibold text-xs flex items-center justify-center transition-colors cursor-pointer ${
                   language === 'en'
-                    ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white font-semibold shadow-xs'
-                    : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300'
+                    ? 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
                 }`}
               >
                 EN
               </button>
             </Tooltip>
-            <Tooltip content="Mudar idioma para Português" position="bottom">
+            <Tooltip content={t.tooltips.switchPt} position="bottom">
               <button
                 onClick={() => setLanguage('pt-BR')}
-                className={`px-2 py-1 rounded transition-colors cursor-pointer ${
+                className={`h-7.5 px-2.5 rounded-md font-semibold text-xs flex items-center justify-center transition-colors cursor-pointer ${
                   language === 'pt-BR'
-                    ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white font-semibold shadow-xs'
-                    : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300'
+                    ? 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs'
+                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
                 }`}
               >
                 PT
@@ -71,11 +76,11 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Theme Toggle */}
-          <Tooltip content={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'} position="bottom">
+          <Tooltip content={theme === 'dark' ? t.tooltips.lightMode : t.tooltips.darkMode} position="bottom">
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="p-2 rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors cursor-pointer"
+              className="h-9 w-9 flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors cursor-pointer shadow-xs"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-neutral-700" />}
             </button>
