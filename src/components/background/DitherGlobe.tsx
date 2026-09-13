@@ -225,7 +225,6 @@ class GlobeScene {
         this.time += dt;
         if (!this.image) return;
 
-        const dark = parseHex(this.cfg.colorA || DEFAULTS.colorA);
         const light = parseHex(this.cfg.colorB || DEFAULTS.colorB);
         const hot = parseHex(this.cfg.accent || DEFAULTS.accent);
 
@@ -283,16 +282,26 @@ class GlobeScene {
                 const f = idx / last;
                 const to = idx === last && levels > 2 ? hot : light;
                 const i = (y * bw + x) * 4;
-                data[i] = dark[0] + (to[0] - dark[0]) * f;
-                data[i + 1] = dark[1] + (to[1] - dark[1]) * f;
-                data[i + 2] = dark[2] + (to[2] - dark[2]) * f;
-                data[i + 3] = 255;
+
+                // 100% Transparent background: only active globe dither dots are rendered
+                if (idx === 0) {
+                    data[i] = 0;
+                    data[i + 1] = 0;
+                    data[i + 2] = 0;
+                    data[i + 3] = 0;
+                } else {
+                    data[i] = to[0];
+                    data[i + 1] = to[1];
+                    data[i + 2] = to[2];
+                    data[i + 3] = Math.round(255 * (0.35 + 0.65 * f));
+                }
             }
         }
 
         this.bufferCtx.putImageData(this.image, 0, 0);
 
         this.ctx.imageSmoothingEnabled = false;
+        this.ctx.clearRect(0, 0, this.width, this.height);
         this.ctx.drawImage(this.buffer, 0, 0, this.width, this.height);
     }
 

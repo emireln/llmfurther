@@ -3,7 +3,6 @@ import { MODELS_DATA } from './data/models';
 import { PROVIDERS_DATA } from './data/providers';
 import { ModelItem, FilterState, getModelKey } from './types';
 import { useLanguage } from './context/LanguageContext';
-import { useTheme } from './context/ThemeContext';
 import { DitherWave } from './components/background/DitherWave';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
@@ -16,7 +15,6 @@ import { Scale } from 'lucide-react';
 
 export const App: React.FC = () => {
   const { t } = useLanguage();
-  const { theme } = useTheme();
 
   // Filters State
   const [filters, setFilters] = useState<FilterState>({
@@ -188,16 +186,14 @@ export const App: React.FC = () => {
 
       {/* Hero Section with Live Dither Wave Background */}
       <section className="relative overflow-hidden border-b border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900">
-        {/* Exact Dither Wave WebGL Canvas Component */}
+        {/* Exact Dither Wave WebGL Canvas Component with 100% Transparent Background */}
         <div className="absolute inset-0 z-0 opacity-45 dark:opacity-55 pointer-events-none">
           <DitherWave
-            speed={0.7000000000000001}
+            speed={0.7}
             intensity={3}
             scale={2.5}
-            downScale={0.8500000000000001}
+            downScale={0.85}
             secondaryColor="#ff3d5c"
-            primaryColor={theme === 'dark' ? '#1c1d22' : '#f0f0f0'}
-            tertiaryColor={theme === 'dark' ? '#0a0a0c' : '#fafafa'}
           />
         </div>
 

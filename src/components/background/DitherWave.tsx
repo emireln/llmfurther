@@ -205,8 +205,6 @@ export const DitherWave: React.FC<DitherWaveProps> = ({
       }
 
       void main() {
-        setupColorPalette();
-
         vec2 uv = gl_FragCoord.xy / iResolution.xy - 0.5;
         uv.x *= iResolution.x / iResolution.y;
         float animTime = iTime * uSpeed;
@@ -217,8 +215,16 @@ export const DitherWave: React.FC<DitherWaveProps> = ({
         float colorValue = length(field) * uIntensity;
         colorValue = clamp(colorValue, 0.0, 1.0);
 
-        vec3 finalColor = applyDitheredColor(colorValue, gl_FragCoord.xy / uDownScale);
-        gl_FragColor = vec4(finalColor, uOpacity);
+        float ditherValue = Bayer64((gl_FragCoord.xy / uDownScale) * 0.25);
+
+        // 100% Transparent background: only render active wave dither dots
+        if (colorValue > ditherValue + 0.18) {
+          float peak = smoothstep(0.65, 1.0, colorValue);
+          vec3 dotColor = mix(uColor2, vec3(1.0, 0.85, 0.88), peak * 0.35);
+          gl_FragColor = vec4(dotColor, uOpacity);
+        } else {
+          discard;
+        }
       }
     `;
 
@@ -226,7 +232,8 @@ export const DitherWave: React.FC<DitherWaveProps> = ({
       uniforms,
       vertexShader,
       fragmentShader,
-      transparent: true
+      transparent: true,
+      depthWrite: false,
     });
 
     const geometry = new THREE.PlaneGeometry(2, 2);

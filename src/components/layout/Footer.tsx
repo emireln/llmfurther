@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
           {/* Left Side: Dither Cat Logo + Brand + Texts in styled solid card with Stronger Gray */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 max-w-xl text-center sm:text-left p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-850 shadow-md">
             {/* Dither Cat Logo */}
-            <div className="shrink-0 p-3 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-xs">
+            <div className="shrink-0 p-3 rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 shadow-xs">
               <CatLogo size={42} className="hover:scale-105 transition-transform" />
             </div>
 
@@ -65,13 +65,13 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Side: High-Resolution Bigger Dither Globe */}
+          {/* Right Side: High-Resolution Bigger Dither Globe with 100% Transparent Background */}
           <div className="flex flex-col items-center sm:items-end gap-2 shrink-0">
             <div className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-850 shadow-md overflow-hidden p-1 flex items-center justify-center">
               <BayerGlobe
-                colorA={isDark ? "#0A0A0A" : "#FFFFFF"}
+                colorA="transparent"
                 colorB="#FF3D5C"
-                accent={isDark ? "#222222" : "#F3F4F6"}
+                accent={isDark ? "#FFFFFF" : "#111827"}
                 pixel={2.5}
                 speed={1.0}
                 levels={6}
