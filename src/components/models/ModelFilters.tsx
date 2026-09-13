@@ -56,7 +56,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
 
   // Provider options
   const providerOptions: DropdownOption[] = [
-    { value: '', label: t.filters.all + ' ' + t.filters.provider },
+    { value: '', label: t.filters.allProviders },
     ...availableProviders.map(p => ({
       value: p.slug,
       label: p.name,
@@ -65,7 +65,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
 
   // Access options
   const accessOptions: DropdownOption[] = [
-    { value: '', label: t.filters.all + ' ' + t.filters.access },
+    { value: '', label: t.filters.allAccess },
     { value: 'free-forever', label: t.accessLabels['free-forever'] },
     { value: 'free-tier', label: t.accessLabels['free-tier'] },
     { value: 'daily-quota', label: t.accessLabels['daily-quota'] },
@@ -76,7 +76,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
 
   // Modality options
   const modalityOptions: DropdownOption[] = [
-    { value: '', label: t.filters.all + ' ' + t.filters.modality },
+    { value: '', label: t.filters.allModalities },
     { value: 'text', label: t.modalities.text },
     { value: 'code', label: t.modalities.code },
     { value: 'image', label: t.modalities.image },
@@ -86,7 +86,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
 
   // Context options
   const contextOptions: DropdownOption[] = [
-    { value: '', label: t.filters.all + ' ' + t.filters.context },
+    { value: '', label: t.filters.allContexts },
     { value: '8k', label: '≥ 8K' },
     { value: '32k', label: '≥ 32K' },
     { value: '128k', label: '≥ 128K' },

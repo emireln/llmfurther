@@ -31,6 +31,10 @@ export const translations = {
       resetFilters: "Reset all filters",
       gridView: "Grid View",
       listView: "List View",
+      allProviders: "All Providers",
+      allAccess: "All Access Types",
+      allModalities: "All Modalities",
+      allContexts: "Any Context Size",
     },
     pagination: {
       loadMore: "Load More",
@@ -66,6 +70,7 @@ export const translations = {
       operational: "Operational",
       degraded: "Degraded",
       maintenance: "Maintenance",
+      major: "Major Outage",
     },
     card: {
       copyId: "Copy ID",
@@ -75,6 +80,9 @@ export const translations = {
       compare: "Compare",
       context: "Context",
       quota: "Free Quota",
+      swe: "SWE",
+      freeAccessAvailable: "Free access tier available",
+      freeAccessTier: "Free access tier",
     },
     tooltips: {
       operational: "Operational state: Normal",
@@ -105,6 +113,13 @@ export const translations = {
       sweBench: "SWE-bench Rating",
       modalities: "Modalities",
       unranked: "Unranked / General LLM",
+      freeAccessAvailable: "Free access tier available directly with provider.",
+      standardContext: "Standard (~8k - 32k)",
+      pythonComment: "Initialize client using provider's free API endpoint",
+      apiKeyPlaceholder: "YOUR_FREE_API_KEY",
+      pythonSystemPrompt: "You are a helpful assistant.",
+      pythonUserPrompt: "Explain quantum computing in simple terms.",
+      curlUserPrompt: "Hello!",
     },
     compare: {
       title: "Side-by-Side Model Comparison",
@@ -124,6 +139,8 @@ export const translations = {
       remove: "Remove model",
       close: "Close comparison",
       clearAll: "Clear all compared models",
+      freeTierDefault: "Free Tier",
+      notAvailable: "N/A",
     },
     footer: {
       mission: "llmfurther is an open directory dedicated to transparent AI infrastructure and developer access.",
@@ -135,7 +152,7 @@ export const translations = {
   'pt-BR': {
     brand: "llmfurther",
     tagline: "Acesso Livre e Gratuito a IA",
-    subtitle: "Diretório selecionado, sem ruídos ou enrolação, de mais de 900 modelos de IA em 58 provedores em nuvem com camadas gratuitas, cotas diárias e créditos de desenvolvedor.",
+    subtitle: "Diretório selecionado, sem ruídos ou enrolação, de mais de 900 modelos de IA em 58 provedores em nuvem com planos gratuitos, cotas diárias e créditos para desenvolvedores.",
     searchPlaceholder: "Buscar modelos (ex: DeepSeek R1, Llama 3.3, Gemini, Claude, Mistral)...",
     github: {
       button: "Favoritar no GitHub",
@@ -164,6 +181,10 @@ export const translations = {
       resetFilters: "Redefinir todos os filtros",
       gridView: "Visualização em Grade",
       listView: "Visualização em Lista",
+      allProviders: "Todos os Provedores",
+      allAccess: "Todos os Tipos de Acesso",
+      allModalities: "Todas as Modalidades",
+      allContexts: "Qualquer Contexto",
     },
     pagination: {
       loadMore: "Carregar Mais",
@@ -199,6 +220,7 @@ export const translations = {
       operational: "Operacional",
       degraded: "Instável",
       maintenance: "Manutenção",
+      major: "Instabilidade Crítica",
     },
     card: {
       copyId: "Copiar ID",
@@ -208,6 +230,9 @@ export const translations = {
       compare: "Comparar",
       context: "Contexto",
       quota: "Cota Grátis",
+      swe: "SWE",
+      freeAccessAvailable: "Plano gratuito disponível",
+      freeAccessTier: "Plano gratuito",
     },
     tooltips: {
       operational: "Estado operacional: Normal",
@@ -238,6 +263,13 @@ export const translations = {
       sweBench: "Avaliação SWE-bench",
       modalities: "Modalidades",
       unranked: "Não Classificado / LLM Geral",
+      freeAccessAvailable: "Plano de acesso gratuito disponível diretamente com o provedor.",
+      standardContext: "Padrão (~8k - 32k)",
+      pythonComment: "Inicializa o cliente usando o endpoint gratuito do provedor",
+      apiKeyPlaceholder: "SUA_CHAVE_API_GRATUITA",
+      pythonSystemPrompt: "Você é um assistente prestativo.",
+      pythonUserPrompt: "Explique computação quântica em termos simples.",
+      curlUserPrompt: "Olá!",
     },
     compare: {
       title: "Comparação Lado a Lado de Modelos",
@@ -257,6 +289,8 @@ export const translations = {
       remove: "Remover modelo",
       close: "Fechar comparação",
       clearAll: "Limpar todos os modelos comparados",
+      freeTierDefault: "Plano Gratuito",
+      notAvailable: "N/D",
     },
     footer: {
       mission: "llmfurther é um diretório aberto dedicado à transparência e acesso democrático à infraestrutura de IA.",

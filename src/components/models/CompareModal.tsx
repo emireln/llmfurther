@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ModelItem, getModelKey } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
+import { translateQuota } from '../../utils/translateQuota';
 import { X, ExternalLink, Trash2 } from 'lucide-react';
 
 interface CompareModalProps {
@@ -18,7 +19,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
   onRemove,
   onClear,
 }) => {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
 
   useEffect(() => {
     if (isOpen) {
@@ -125,7 +126,9 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                     </td>
                     {models.map(m => (
                       <td key={getModelKey(m)} className="p-4 text-neutral-900 dark:text-neutral-100 font-sans">
-                        <span className="font-semibold text-[#ff3d5c]">{m.freeLimit || 'Free Tier'}</span>
+                        <span className="font-semibold text-[#ff3d5c]">
+                          {translateQuota(m.freeLimit, language) || t.compare.freeTierDefault}
+                        </span>
                       </td>
                     ))}
                   </tr>
@@ -137,7 +140,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                     </td>
                     {models.map(m => (
                       <td key={getModelKey(m)} className="p-4 text-neutral-900 dark:text-neutral-100 font-semibold">
-                        {m.context || 'N/A'}
+                        {m.context || t.compare.notAvailable}
                       </td>
                     ))}
                   </tr>
@@ -188,7 +191,9 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                               m.status === 'operational' ? 'bg-emerald-500' : 'bg-amber-500'
                             }`}
                           />
-                          <span className="capitalize font-semibold">{m.status}</span>
+                          <span className="capitalize font-semibold">
+                            {t.status[m.status as keyof typeof t.status] || m.status}
+                          </span>
                         </span>
                       </td>
                     ))}

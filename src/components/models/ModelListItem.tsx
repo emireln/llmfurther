@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ModelItem } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { ModelLogo } from '../common/ModelLogo';
+import { translateQuota } from '../../utils/translateQuota';
 import { Copy, Check, ExternalLink, Zap } from 'lucide-react';
 
 interface ModelListItemProps {
@@ -17,7 +18,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
   isCompared,
   onToggleCompare,
 }) => {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = (e: React.MouseEvent) => {
@@ -113,7 +114,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
 
           {model.sweScore && (
             <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[#ff3d5c] border border-neutral-300 dark:border-neutral-700 font-bold">
-              SWE: {model.sweScore}
+              {t.card.swe}: {model.sweScore}
             </span>
           )}
         </div>
@@ -122,7 +123,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
         <div className="hidden lg:flex items-center gap-1 text-xs text-neutral-700 dark:text-neutral-300 max-w-[220px]">
           <Zap className="w-3.5 h-3.5 text-[#ff3d5c] shrink-0" />
           <span className="truncate font-sans text-[11px]">
-            {model.freeLimit || 'Free access tier'}
+            {translateQuota(model.freeLimit, language) || t.card.freeAccessTier}
           </span>
         </div>
       </div>

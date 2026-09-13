@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ModelItem } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { ModelLogo } from '../common/ModelLogo';
+import { translateQuota } from '../../utils/translateQuota';
 import { Copy, Check, ExternalLink, Zap } from 'lucide-react';
 
 interface ModelCardProps {
@@ -17,7 +18,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
   isCompared,
   onToggleCompare,
 }) => {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = (e: React.MouseEvent) => {
@@ -117,7 +118,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
 
           {model.sweScore && (
             <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[#ff3d5c] border border-neutral-300 dark:border-neutral-700 font-bold">
-              SWE: {model.sweScore}
+              {t.card.swe}: {model.sweScore}
             </span>
           )}
         </div>
@@ -127,7 +128,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
           <div className="flex items-start gap-1.5 text-xs text-neutral-800 dark:text-neutral-200">
             <Zap className="w-3.5 h-3.5 text-[#ff3d5c] shrink-0 mt-0.5" />
             <span className="line-clamp-2 leading-relaxed font-sans text-[12px]">
-              {model.freeLimit || 'Free access tier available'}
+              {translateQuota(model.freeLimit, language) || t.card.freeAccessAvailable}
             </span>
           </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ModelItem } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { ModelLogo } from '../common/ModelLogo';
+import { translateQuota } from '../../utils/translateQuota';
 import { X, Copy, Check, ExternalLink, Zap } from 'lucide-react';
 
 interface ModelDetailModalProps {
@@ -10,7 +11,7 @@ interface ModelDetailModalProps {
 }
 
 export const ModelDetailModal: React.FC<ModelDetailModalProps> = ({ model, onClose }) => {
-  const { t } = useLanguage();
+  const { language, t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'quickstart' | 'specs'>('quickstart');
   const [copiedType, setCopiedType] = useState<'python' | 'curl' | null>(null);
 
@@ -36,17 +37,17 @@ export const ModelDetailModal: React.FC<ModelDetailModalProps> = ({ model, onClo
 
   const pythonSnippet = `from openai import OpenAI
 
-# Initialize client using provider's free API endpoint
+# ${t.modal.pythonComment}
 client = OpenAI(
     base_url="${model.url || 'https://api.openai.com/v1'}",
-    api_key="YOUR_FREE_API_KEY"
+    api_key="${t.modal.apiKeyPlaceholder}"
 )
 
 response = client.chat.completions.create(
     model="${model.id}",
     messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Explain quantum computing in simple terms."}
+        {"role": "system", "content": "${t.modal.pythonSystemPrompt}"},
+        {"role": "user", "content": "${t.modal.pythonUserPrompt}"}
     ],
     temperature=0.7,
 )
@@ -55,11 +56,11 @@ print(response.choices[0].message.content)`;
 
   const curlSnippet = `curl "${model.url || 'https://api.openai.com/v1/chat/completions'}" \\
   -H "Content-Type: application/json" \\
-  -H "Authorization: Bearer YOUR_FREE_API_KEY" \\
+  -H "Authorization: Bearer ${t.modal.apiKeyPlaceholder}" \\
   -d '{
     "model": "${model.id}",
     "messages": [
-      {"role": "user", "content": "Hello!"}
+      {"role": "user", "content": "${t.modal.curlUserPrompt}"}
     ]
   }'`;
 
@@ -100,7 +101,7 @@ print(response.choices[0].message.content)`;
                   }`}
                 />
                 <span className="text-[11px] font-mono text-neutral-400 dark:text-neutral-400 capitalize">
-                  {model.status}
+                  {t.status[model.status as keyof typeof t.status] || model.status}
                 </span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-50 tracking-tight">
@@ -130,7 +131,7 @@ print(response.choices[0].message.content)`;
             <span className="font-bold text-[#ff3d5c] font-mono uppercase tracking-wider text-[11px] sm:text-xs mr-2">
               {t.card.quota}:
             </span>
-            {model.freeLimit || 'Free access tier available directly with provider.'}
+            {translateQuota(model.freeLimit, language) || t.modal.freeAccessAvailable}
           </div>
         </div>
 
@@ -230,7 +231,7 @@ print(response.choices[0].message.content)`;
                 <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800">
                   <span className="text-neutral-500 dark:text-neutral-400 block text-[11px] mb-1">{t.modal.maxContext}</span>
                   <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
-                    {model.context || 'Standard (~8k - 32k)'}
+                    {model.context || t.modal.standardContext}
                   </span>
                 </div>
 
@@ -257,7 +258,7 @@ print(response.choices[0].message.content)`;
                       }`}
                     />
                     <span className="text-sm font-bold capitalize text-neutral-900 dark:text-neutral-100">
-                      {model.status}
+                      {t.status[model.status as keyof typeof t.status] || model.status}
                     </span>
                   </div>
                 </div>
