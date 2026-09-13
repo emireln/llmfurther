@@ -14,12 +14,12 @@ const MODEL_PATTERNS: { regex: RegExp; file: string }[] = [
   { regex: /gpt|openai|o[134]-/i, file: 'openai.png' },
   { regex: /claude/i, file: 'claude.png' },
   { regex: /anthropic/i, file: 'anthropic.png' },
-  { regex: /gemini/i, file: 'gemini.png' },
+  { regex: /gemini|agnes/i, file: 'gemini.png' },
   { regex: /gemma/i, file: 'gemma.png' },
   { regex: /qwen|dashscope/i, file: 'qwen.png' },
   { regex: /llama|meta|muse-/i, file: 'meta.png' },
   { regex: /nemotron|nvidia/i, file: 'nvidia.png' },
-  { regex: /mistral|ministral|codestral|pixtral|voxtral|leanstral/i, file: 'mistral.png' },
+  { regex: /mistral|mixtral|ministral|codestral|pixtral|voxtral|leanstral/i, file: 'mistral.png' },
   { regex: /grok/i, file: 'grok.png' },
   { regex: /xai/i, file: 'xai.png' },
   { regex: /cohere|command-|north-mini|tiny-aya|c4ai-aya|aya-expanse|aya-vision/i, file: 'cohere.png' },
@@ -27,7 +27,7 @@ const MODEL_PATTERNS: { regex: RegExp; file: string }[] = [
   { regex: /minimax/i, file: 'minimax.png' },
   { regex: /laguna|poolside/i, file: 'poolside.png' },
   { regex: /glm|zhipu/i, file: 'zai.png' },
-  { regex: /stepfun/i, file: 'stepfun.png' },
+  { regex: /stepfun|step-/i, file: 'stepfun.png' },
   { regex: /thinkingmachines|thinking machines|inkling/i, file: 'thinking-machines.png' },
   { regex: /liquid|lfm-/i, file: 'liquid.png' },
   { regex: /jina/i, file: 'jina.png' },
@@ -51,6 +51,19 @@ const MODEL_PATTERNS: { regex: RegExp; file: string }[] = [
   { regex: /modelscope/i, file: 'modelscope.png' },
   { regex: /chutes/i, file: 'chutes.png' },
   { regex: /cline/i, file: 'cline.png' },
+  { regex: /openrouter/i, file: 'openrouter.png' },
+  { regex: /routeway/i, file: 'routeway.png' },
+  { regex: /tokenrouter/i, file: 'tokenrouter.png' },
+  { regex: /zenmux/i, file: 'zenmux.svg' },
+  { regex: /itsfree/i, file: 'itsfree.svg' },
+  { regex: /airforce/i, file: 'api-airforce.png' },
+  { regex: /aion/i, file: 'aion-labs.png' },
+  { regex: /orcarouter/i, file: 'orcarouter.png' },
+  { regex: /jan/i, file: 'jan.png' },
+  { regex: /lm-studio|lmstudio/i, file: 'lm-studio.png' },
+  { regex: /vllm/i, file: 'vllm.png' },
+  { regex: /pollinations/i, file: 'pollinations.png' },
+  { regex: /nscale/i, file: 'nscale.png' },
 ];
 
 export const ModelLogo: React.FC<ModelLogoProps> = ({
@@ -67,10 +80,11 @@ export const ModelLogo: React.FC<ModelLogoProps> = ({
   const candidateUrls: string[] = [];
 
   // 1. Model family specific icon
-  const combinedText = `${modelId} ${modelName}`;
+  const combinedText = `${modelId} ${modelName} ${providerSlug} ${providerName}`;
   const modelMatch = MODEL_PATTERNS.find(p => p.regex.test(combinedText));
   if (modelMatch) {
     candidateUrls.push(`/assets/logos/models/${modelMatch.file}`);
+    candidateUrls.push(`/assets/logos/${modelMatch.file}`);
   }
 
   // 2. Provider specific icons
@@ -78,6 +92,8 @@ export const ModelLogo: React.FC<ModelLogoProps> = ({
   candidateUrls.push(`/assets/logos/providers/${providerSlug}.png`);
   candidateUrls.push(`/assets/logos/${providerSlug}.svg`);
   candidateUrls.push(`/assets/logos/${providerSlug}.png`);
+  candidateUrls.push(`/assets/logos/models/${providerSlug}.png`);
+  candidateUrls.push(`/assets/logos/models/${providerSlug}.svg`);
 
   // 3. Provider slug aliases (e.g. googleai -> google, github-models -> github)
   const cleanSlug = providerSlug.split('-')[0].replace('ai', '');
@@ -85,6 +101,8 @@ export const ModelLogo: React.FC<ModelLogoProps> = ({
     candidateUrls.push(`/assets/logos/providers/${cleanSlug}.svg`);
     candidateUrls.push(`/assets/logos/providers/${cleanSlug}.png`);
     candidateUrls.push(`/assets/logos/${cleanSlug}.svg`);
+    candidateUrls.push(`/assets/logos/${cleanSlug}.png`);
+    candidateUrls.push(`/assets/logos/models/${cleanSlug}.png`);
   }
 
   // Reset index when model changes

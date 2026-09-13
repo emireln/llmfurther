@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+	<style>
+		:root { --bg: #000; --fg: #fff; }
+		@media (prefers-color-scheme: dark) {
+			:root { --bg: #fff; --fg: #000; }
+		}
+	</style>
+	<rect width="32" height="32" rx="7" fill="var(--bg)" />
+	<path
+		d="M16.00 6.40L16.00 25.60 M24.31 11.20L7.69 20.80 M24.31 20.80L7.69 11.20"
+		stroke="var(--fg)"
+		stroke-width="3.68"
+		stroke-linecap="round"
+	/>
+</svg>
