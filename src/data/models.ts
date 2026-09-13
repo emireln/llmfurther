@@ -2,6 +2,384 @@ import { ModelItem } from '../types';
 
 export const MODELS_DATA: ModelItem[] = [
   {
+    "id": "gemini-3.8-flash",
+    "name": "Gemini 3.8 Flash",
+    "provider": "Google AI Studio",
+    "providerSlug": "google",
+    "type": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "1,500 req/day · 15 RPM free tier",
+    "context": "1M",
+    "sweScore": "84.2%",
+    "tags": [
+      "flagship",
+      "multimodal",
+      "fast"
+    ],
+    "url": "https://aistudio.google.com/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "gemini-3.8-pro",
+    "name": "Gemini 3.8 Pro",
+    "provider": "Google AI Studio",
+    "providerSlug": "google",
+    "type": [
+      "text",
+      "image",
+      "audio",
+      "video",
+      "code"
+    ],
+    "access": [
+      "free-tier",
+      "daily-quota",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "50 req/day · 2 RPM free tier",
+    "context": "2M",
+    "sweScore": "87.6%",
+    "tags": [
+      "frontier",
+      "reasoning",
+      "multimodal",
+      "coding"
+    ],
+    "url": "https://aistudio.google.com/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "gemini-3.8-flash-lite",
+    "name": "Gemini 3.8 Flash Lite",
+    "provider": "Google AI Studio",
+    "providerSlug": "google",
+    "type": [
+      "text",
+      "image",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "2,000 req/day · 30 RPM free tier",
+    "context": "1M",
+    "sweScore": "78.9%",
+    "tags": [
+      "fast",
+      "lightweight",
+      "high-quota"
+    ],
+    "url": "https://aistudio.google.com/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "claude-4-sonnet",
+    "name": "Claude 4 Sonnet",
+    "provider": "OpenRouter",
+    "providerSlug": "openrouter",
+    "type": [
+      "text",
+      "code",
+      "image"
+    ],
+    "access": [
+      "free-tier",
+      "daily-quota"
+    ],
+    "status": "operational",
+    "freeLimit": "Daily free query quota via OpenRouter",
+    "context": "200K",
+    "sweScore": "86.1%",
+    "tags": [
+      "frontier",
+      "coding",
+      "reasoning"
+    ],
+    "url": "https://openrouter.ai/models",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "claude-4-haiku",
+    "name": "Claude 4 Haiku",
+    "provider": "OpenRouter",
+    "providerSlug": "openrouter",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "Free access tier via OpenRouter free pool",
+    "context": "200K",
+    "sweScore": "80.4%",
+    "tags": [
+      "speed",
+      "efficiency",
+      "general"
+    ],
+    "url": "https://openrouter.ai/models",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "gpt-5-mini",
+    "name": "GPT-5 Mini",
+    "provider": "OpenRouter",
+    "providerSlug": "openrouter",
+    "type": [
+      "text",
+      "code",
+      "image"
+    ],
+    "access": [
+      "free-tier",
+      "daily-quota"
+    ],
+    "status": "operational",
+    "freeLimit": "Free tier routing on OpenRouter",
+    "context": "128K",
+    "sweScore": "83.8%",
+    "tags": [
+      "reasoning",
+      "multimodal"
+    ],
+    "url": "https://openrouter.ai/models",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "gpt-4.8-turbo",
+    "name": "GPT-4.8 Turbo",
+    "provider": "GitHub Models",
+    "providerSlug": "github",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "150 req/day with standard GitHub account",
+    "context": "128K",
+    "sweScore": "81.5%",
+    "tags": [
+      "coding",
+      "free-forever"
+    ],
+    "url": "https://github.com/marketplace/models",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "deepseek-r2",
+    "name": "DeepSeek R2 Reasoning",
+    "provider": "Groq",
+    "providerSlug": "groq",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "30 RPM · 500k tokens/min ultra-fast LPU inference",
+    "context": "128K",
+    "sweScore": "88.9%",
+    "tags": [
+      "reasoning",
+      "math",
+      "ultra-fast"
+    ],
+    "url": "https://console.groq.com/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "deepseek-v4",
+    "name": "DeepSeek V4 MoE",
+    "provider": "SiliconFlow",
+    "providerSlug": "siliconflow",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "Free tier inference on standard speed tier",
+    "context": "128K",
+    "sweScore": "85.3%",
+    "tags": [
+      "moe",
+      "flagship",
+      "coding"
+    ],
+    "url": "https://siliconflow.cn/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "llama-4-scout",
+    "name": "Llama 4 Scout",
+    "provider": "Groq",
+    "providerSlug": "groq",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "30 RPM · instant inference on Groq LPU",
+    "context": "128K",
+    "sweScore": "80.7%",
+    "tags": [
+      "open-weights",
+      "speed"
+    ],
+    "url": "https://console.groq.com/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "llama-4-70b",
+    "name": "Llama 4 70B Instruct",
+    "provider": "Together AI",
+    "providerSlug": "together",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-tier",
+      "signup-credits"
+    ],
+    "status": "operational",
+    "freeLimit": "$5.00 free credits upon verification",
+    "context": "128K",
+    "sweScore": "84.1%",
+    "tags": [
+      "flagship",
+      "coding"
+    ],
+    "url": "https://api.together.ai/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "qwen-3-72b-instruct",
+    "name": "Qwen 3 72B Instruct",
+    "provider": "SiliconFlow",
+    "providerSlug": "siliconflow",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "Completely free tier access on SiliconCloud",
+    "context": "128K",
+    "sweScore": "82.5%",
+    "tags": [
+      "multilingual",
+      "coding"
+    ],
+    "url": "https://siliconflow.cn/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "mistral-nemo-2-24b",
+    "name": "Mistral Nemo 2 24B",
+    "provider": "OpenRouter",
+    "providerSlug": "openrouter",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "Free forever via OpenRouter :free router",
+    "context": "128K",
+    "sweScore": "78.2%",
+    "tags": [
+      "apache-2.0",
+      "open-source"
+    ],
+    "url": "https://openrouter.ai/models",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "gemma-3-27b",
+    "name": "Gemma 3 27B IT",
+    "provider": "Cerebras",
+    "providerSlug": "cerebras",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-forever",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "1M tokens/day · 30 RPM at 1800 tok/sec",
+    "context": "128K",
+    "sweScore": "79.8%",
+    "tags": [
+      "ultra-fast",
+      "free-forever"
+    ],
+    "url": "https://cloud.cerebras.ai/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
+    "id": "cohere-command-r-plus-v2",
+    "name": "Command R+ v2",
+    "provider": "Cohere",
+    "providerSlug": "cohere",
+    "type": [
+      "text",
+      "code"
+    ],
+    "access": [
+      "free-tier",
+      "no-card"
+    ],
+    "status": "operational",
+    "freeLimit": "1,000 requests/month trial tier",
+    "context": "128K",
+    "sweScore": "81.0%",
+    "tags": [
+      "rag",
+      "enterprise"
+    ],
+    "url": "https://dashboard.cohere.com/",
+    "addedAt": "2026-09-13T00:00:00.000Z"
+  },
+  {
     "id": "gemini-2.5-flash",
     "provider": "Google AI Studio",
     "providerSlug": "google",

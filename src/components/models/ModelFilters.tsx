@@ -208,8 +208,8 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             title={t.filters.gridView}
             className={`p-1.5 rounded-md transition-all cursor-pointer ${
               viewMode === 'grid'
-                ? 'bg-white dark:bg-neutral-900 text-[#ff3d5c] shadow-xs'
-                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+                ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
+                : 'text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200'
             }`}
           >
             <LayoutGrid className="w-3.5 h-3.5" />
@@ -221,8 +221,8 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             title={t.filters.listView}
             className={`p-1.5 rounded-md transition-all cursor-pointer ${
               viewMode === 'list'
-                ? 'bg-white dark:bg-neutral-900 text-[#ff3d5c] shadow-xs'
-                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+                ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
+                : 'text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200'
             }`}
           >
             <List className="w-3.5 h-3.5" />

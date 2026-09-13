@@ -87,9 +87,18 @@ export const App: React.FC = () => {
     setCompareList([]);
   };
 
-  // Provider List for Filter component
+  // Provider List for Filter component: Aggregate all providers and sort cleanly
   const availableProviders = useMemo(() => {
-    return PROVIDERS_DATA.map(p => ({ slug: p.slug, name: p.name }));
+    const map = new Map<string, string>();
+    PROVIDERS_DATA.forEach(p => map.set(p.slug, p.name));
+    MODELS_DATA.forEach(m => {
+      if (m.providerSlug && m.provider && !map.has(m.providerSlug)) {
+        map.set(m.providerSlug, m.provider);
+      }
+    });
+    return Array.from(map.entries())
+      .map(([slug, name]) => ({ slug, name }))
+      .sort((a, b) => a.name.localeCompare(b.name));
   }, []);
 
   // Filtered and Sorted Models

@@ -2,6 +2,181 @@ import { ProviderItem } from '../types';
 
 export const PROVIDERS_DATA: ProviderItem[] = [
   {
+    "slug": "google",
+    "name": "Google AI Studio",
+    "models_count": 8,
+    "types": [
+      "text",
+      "code",
+      "image",
+      "audio",
+      "video"
+    ],
+    "access_modes": [
+      "free-forever",
+      "no-card",
+      "daily-quota"
+    ],
+    "free_limits": [
+      "1,500 requests/day free tier",
+      "15 RPM Gemini flash models"
+    ],
+    "urls": [
+      "https://aistudio.google.com/"
+    ],
+    "sample_models": [
+      "gemini-3.8-flash",
+      "gemini-3.8-pro",
+      "gemini-3.8-flash-lite",
+      "gemini-2.5-flash"
+    ]
+  },
+  {
+    "slug": "openrouter",
+    "name": "OpenRouter",
+    "models_count": 35,
+    "types": [
+      "text",
+      "code",
+      "image"
+    ],
+    "access_modes": [
+      "free-forever",
+      "free-tier",
+      "no-card"
+    ],
+    "free_limits": [
+      "Free pool routers (:free suffix)",
+      "Daily trial credits"
+    ],
+    "urls": [
+      "https://openrouter.ai/models"
+    ],
+    "sample_models": [
+      "claude-4-sonnet",
+      "claude-4-haiku",
+      "gpt-5-mini",
+      "mistral-nemo-2-24b"
+    ]
+  },
+  {
+    "slug": "groq",
+    "name": "Groq",
+    "models_count": 12,
+    "types": [
+      "text",
+      "code"
+    ],
+    "access_modes": [
+      "free-forever",
+      "no-card"
+    ],
+    "free_limits": [
+      "30 RPM · 500k tokens/min LPU speed"
+    ],
+    "urls": [
+      "https://console.groq.com/"
+    ],
+    "sample_models": [
+      "deepseek-r2",
+      "llama-4-scout",
+      "llama-3.3-70b-versatile"
+    ]
+  },
+  {
+    "slug": "siliconflow",
+    "name": "SiliconFlow",
+    "models_count": 20,
+    "types": [
+      "text",
+      "code"
+    ],
+    "access_modes": [
+      "free-forever",
+      "no-card"
+    ],
+    "free_limits": [
+      "Free unlimited inference on standard speed tier"
+    ],
+    "urls": [
+      "https://siliconflow.cn/"
+    ],
+    "sample_models": [
+      "deepseek-v4",
+      "qwen-3-72b-instruct"
+    ]
+  },
+  {
+    "slug": "together",
+    "name": "Together AI",
+    "models_count": 18,
+    "types": [
+      "text",
+      "code"
+    ],
+    "access_modes": [
+      "free-tier",
+      "signup-credits"
+    ],
+    "free_limits": [
+      "$5.00 trial credits upon registration"
+    ],
+    "urls": [
+      "https://api.together.ai/"
+    ],
+    "sample_models": [
+      "llama-4-70b",
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+    ]
+  },
+  {
+    "slug": "cerebras",
+    "name": "Cerebras",
+    "models_count": 8,
+    "types": [
+      "text",
+      "code"
+    ],
+    "access_modes": [
+      "free-forever",
+      "no-card"
+    ],
+    "free_limits": [
+      "1M tokens/day · 30 RPM at 1800 tok/sec"
+    ],
+    "urls": [
+      "https://cloud.cerebras.ai/"
+    ],
+    "sample_models": [
+      "gemma-3-27b",
+      "llama3.1-70b"
+    ]
+  },
+  {
+    "slug": "cohere",
+    "name": "Cohere",
+    "models_count": 6,
+    "types": [
+      "text",
+      "code",
+      "embedding"
+    ],
+    "access_modes": [
+      "free-tier",
+      "no-card"
+    ],
+    "free_limits": [
+      "1,000 requests/month trial tier"
+    ],
+    "urls": [
+      "https://dashboard.cohere.com/"
+    ],
+    "sample_models": [
+      "command-r-plus-v2",
+      "command-r"
+    ]
+  },
+  {
     "slug": "agentrouter",
     "name": "Agent Router",
     "models_count": 6,

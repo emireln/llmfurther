@@ -53,8 +53,8 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => setLanguage('en')}
               className={`h-7 px-2.5 rounded-md font-semibold text-xs flex items-center justify-center transition-all cursor-pointer ${
                 language === 'en'
-                  ? 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs font-bold'
-                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+                  ? 'bg-white dark:bg-neutral-700 text-neutral-950 dark:text-white shadow-xs font-bold'
+                  : 'text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200'
               }`}
             >
               EN
@@ -64,8 +64,8 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => setLanguage('pt-BR')}
               className={`h-7 px-2.5 rounded-md font-semibold text-xs flex items-center justify-center transition-all cursor-pointer ${
                 language === 'pt-BR'
-                  ? 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs font-bold'
-                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+                  ? 'bg-white dark:bg-neutral-700 text-neutral-950 dark:text-white shadow-xs font-bold'
+                  : 'text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-200'
               }`}
             >
               PT
