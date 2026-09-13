@@ -1,0 +1,9 @@
+.git
+.github
+node_modules
+*.log
+.DS_Store
+scratch/
+freellm/
+.tempmediaStorage/
+.system_generated/
