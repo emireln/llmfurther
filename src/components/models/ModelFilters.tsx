@@ -175,7 +175,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
               type="button"
               onClick={resetFilters}
               title={t.filters.clearAll}
-              className="p-2 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-850 text-neutral-600 dark:text-neutral-300 hover:text-[#ff3d5c] hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors shrink-0 cursor-pointer shadow-xs"
+              className="p-2 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 hover:text-[#ff3d5c] hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors shrink-0 cursor-pointer shadow-xs"
               aria-label={t.filters.clearAll}
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -200,7 +200,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
         </div>
 
         {/* Grid / List View Switcher */}
-        <div className="flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-850 shadow-2xs">
+        <div className="flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 shadow-2xs">
           <button
             type="button"
             onClick={() => onViewModeChange('grid')}

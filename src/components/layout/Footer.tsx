@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
 
                 <button
                   onClick={scrollToTop}
-                  className="h-9 px-3 inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:text-accent hover:bg-neutral-200 dark:hover:bg-neutral-750 text-xs font-mono font-semibold transition-colors cursor-pointer shadow-xs"
+                  className="h-9 px-3 inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:text-accent hover:bg-neutral-200 dark:hover:bg-neutral-700 text-xs font-mono font-semibold transition-colors cursor-pointer shadow-xs"
                 >
                   <span>{t.footer.backToTop}</span>
                   <ArrowUp className="w-3.5 h-3.5" />

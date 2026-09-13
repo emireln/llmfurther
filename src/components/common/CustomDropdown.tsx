@@ -61,7 +61,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         className={`inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border text-xs font-mono transition-all select-none cursor-pointer ${
           isFiltered
             ? 'border-[#ff3d5c] bg-[#ff3d5c] text-white font-semibold shadow-xs'
-            : 'border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-850 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+            : 'border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-50 dark:hover:bg-neutral-800'
         }`}
       >
         <div className="flex items-center gap-1.5 truncate">

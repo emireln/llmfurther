@@ -124,7 +124,7 @@ print(response.choices[0].message.content)`;
         </div>
 
         {/* Free Limit Notice Banner: Strong Gray Background */}
-        <div className="bg-neutral-100 dark:bg-neutral-850 border-b border-neutral-300 dark:border-neutral-700 px-5 sm:px-6 py-3 flex items-center gap-2.5">
+        <div className="bg-neutral-100 dark:bg-neutral-900 border-b border-neutral-300 dark:border-neutral-800 px-5 sm:px-6 py-3 flex items-center gap-2.5">
           <Zap className="w-4 h-4 text-[#ff3d5c] shrink-0" />
           <div className="text-xs sm:text-sm text-neutral-800 dark:text-neutral-200 font-sans">
             <span className="font-bold text-[#ff3d5c] font-mono uppercase tracking-wider text-[11px] sm:text-xs mr-2">
@@ -135,7 +135,7 @@ print(response.choices[0].message.content)`;
         </div>
 
         {/* Modal Tabs */}
-        <div className="flex border-b border-neutral-200 dark:border-neutral-700 px-5 sm:px-6 bg-neutral-100 dark:bg-neutral-850 text-xs sm:text-sm font-mono">
+        <div className="flex border-b border-neutral-200 dark:border-neutral-800 px-5 sm:px-6 bg-neutral-100 dark:bg-neutral-900 text-xs sm:text-sm font-mono">
           <button
             type="button"
             onClick={() => setActiveTab('quickstart')}
@@ -165,7 +165,7 @@ print(response.choices[0].message.content)`;
           {activeTab === 'quickstart' && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               {/* Python SDK Example */}
-              <div className="flex flex-col rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-850/70 p-4">
+              <div className="flex flex-col rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-4">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-mono text-neutral-600 dark:text-neutral-300 font-bold uppercase tracking-wider">
                     {t.modal.pythonExample}
@@ -194,7 +194,7 @@ print(response.choices[0].message.content)`;
               </div>
 
               {/* cURL Example */}
-              <div className="flex flex-col rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-850/70 p-4">
+              <div className="flex flex-col rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-4">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-mono text-neutral-600 dark:text-neutral-300 font-bold uppercase tracking-wider">
                     {t.modal.curlExample}
@@ -263,7 +263,7 @@ print(response.choices[0].message.content)`;
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-850/70">
+              <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
                 <span className="text-neutral-500 dark:text-neutral-300 block text-[11px] mb-2 font-bold uppercase tracking-wider">{t.modal.modalities}</span>
                 <div className="flex flex-wrap gap-2">
                   {model.type?.map(m => (
@@ -277,7 +277,7 @@ print(response.choices[0].message.content)`;
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-850/70">
+              <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
                 <span className="text-neutral-500 dark:text-neutral-300 block text-[11px] mb-2 font-bold uppercase tracking-wider">{t.filters.access}</span>
                 <div className="flex flex-wrap gap-2">
                   {model.access?.map(acc => (
@@ -295,7 +295,7 @@ print(response.choices[0].message.content)`;
         </div>
 
         {/* Modal Footer: Solid Action Buttons with Strong Gray */}
-        <div className="p-4 sm:p-5 border-t border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-850 flex items-center justify-between gap-3">
+        <div className="p-4 sm:p-5 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 flex items-center justify-between gap-3">
           {model.url ? (
             <a
               href={model.url}
@@ -313,7 +313,7 @@ print(response.choices[0].message.content)`;
           <button
             type="button"
             onClick={onClose}
-            className="px-5 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-750 transition-colors cursor-pointer shadow-2xs"
+            className="px-5 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer shadow-2xs"
           >
             {t.modal.close}
           </button>

@@ -35,7 +35,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
       onClick={() => onSelect(model)}
       className={`group relative flex flex-col justify-between rounded-lg border bg-white dark:bg-neutral-900 transition-all duration-150 cursor-pointer p-4 select-none min-w-0 h-full ${
         isCompared
-          ? 'border-[#ff3d5c] ring-1 ring-[#ff3d5c] bg-neutral-50/50 dark:bg-neutral-850'
+          ? 'border-[#ff3d5c] ring-1 ring-[#ff3d5c] bg-neutral-50/50 dark:bg-neutral-800'
           : 'border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50/80 dark:hover:bg-neutral-800 hover:shadow-xs'
       }`}
     >
@@ -82,7 +82,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
                   <Check className="w-3.5 h-3.5 text-white stroke-[3]" />
                 </div>
               ) : (
-                <div className="w-5 h-5 rounded flex items-center justify-center bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-transparent hover:bg-neutral-100 dark:hover:bg-neutral-750 transition-colors">
+                <div className="w-5 h-5 rounded flex items-center justify-center bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 text-transparent hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors">
                   <Check className="w-3.5 h-3.5 opacity-0" />
                 </div>
               )}
@@ -103,7 +103,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
           {model.access?.slice(0, 2).map((acc) => (
             <span
               key={acc}
-              className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-850 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-750"
+              className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-800"
             >
               {t.accessLabels[acc as keyof typeof t.accessLabels] || acc}
             </span>
@@ -116,7 +116,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
           )}
 
           {model.sweScore && (
-            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-850 text-[#ff3d5c] border border-neutral-300 dark:border-neutral-750 font-bold">
+            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-900 text-[#ff3d5c] border border-neutral-300 dark:border-neutral-800 font-bold">
               SWE: {model.sweScore}
             </span>
           )}
@@ -162,7 +162,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
               title={t.tooltips.visitConsole}
-              className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-white hover:bg-[#ff3d5c] dark:hover:bg-[#ff3d5c] hover:border-[#ff3d5c] transition-colors py-1 px-2 rounded bg-neutral-100 dark:bg-neutral-850 border border-neutral-300 dark:border-neutral-750 cursor-pointer shadow-2xs"
+              className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-white hover:bg-[#ff3d5c] dark:hover:bg-[#ff3d5c] hover:border-[#ff3d5c] transition-colors py-1 px-2 rounded bg-neutral-100 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800 cursor-pointer shadow-2xs"
             >
               <span>{t.card.getKey}</span>
               <ExternalLink className="w-3 h-3" />
