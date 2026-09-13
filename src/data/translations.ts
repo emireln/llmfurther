@@ -29,6 +29,8 @@ export const translations = {
       models: "models",
       noResults: "No models match your current filters.",
       resetFilters: "Reset all filters",
+      gridView: "Grid View",
+      listView: "List View",
     },
     pagination: {
       loadMore: "Load More",
@@ -161,6 +163,8 @@ export const translations = {
       models: "modelos",
       noResults: "Nenhum modelo corresponde aos filtros selecionados.",
       resetFilters: "Redefinir todos os filtros",
+      gridView: "Visualização em Grade",
+      listView: "Visualização em Lista",
     },
     pagination: {
       loadMore: "Carregar Mais",

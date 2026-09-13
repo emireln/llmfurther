@@ -34,13 +34,13 @@ export const ModelCard: React.FC<ModelCardProps> = ({
   return (
     <div
       onClick={() => onSelect(model)}
-      className={`group relative flex flex-col justify-between rounded-lg border bg-white dark:bg-neutral-900 transition-all duration-150 cursor-pointer p-4 select-none ${
+      className={`group relative flex flex-col justify-between rounded-lg border bg-white dark:bg-neutral-900 transition-all duration-150 cursor-pointer p-4 select-none min-w-0 h-full ${
         isCompared
           ? 'border-[#ff3d5c] ring-1 ring-[#ff3d5c]'
           : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 hover:shadow-xs'
       }`}
     >
-      <div>
+      <div className="flex-1 min-w-0 flex flex-col">
         {/* Top Header: Real Brand Logo + Provider Name + Status & Solid Compare Checkbox */}
         <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2.5 min-w-0">
@@ -133,7 +133,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
         </div>
 
         {/* Free Limit / Quota Highlight */}
-        <div className="mt-3 pt-2.5 border-t border-neutral-200 dark:border-neutral-800">
+        <div className="mt-3 pt-2.5 border-t border-neutral-200 dark:border-neutral-800 min-h-[44px] flex items-center">
           <div className="flex items-start gap-1.5 text-xs text-neutral-800 dark:text-neutral-200">
             <Zap className="w-3.5 h-3.5 text-[#ff3d5c] shrink-0 mt-0.5" />
             <span className="line-clamp-2 leading-relaxed font-sans text-[12px]">
@@ -144,7 +144,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
       </div>
 
       {/* Bottom Actions: Solid Styling */}
-      <div className="mt-4 pt-2.5 flex items-center justify-between gap-2 border-t border-neutral-200 dark:border-neutral-800 text-xs">
+      <div className="mt-auto pt-2.5 flex items-center justify-between gap-2 border-t border-neutral-200 dark:border-neutral-800 text-xs shrink-0">
         <Tooltip content={copied ? t.card.copied : t.tooltips.copyId} position="top">
           <button
             onClick={handleCopy}

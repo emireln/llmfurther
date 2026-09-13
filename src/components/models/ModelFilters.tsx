@@ -3,7 +3,7 @@ import { FilterState } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { CustomDropdown, DropdownOption } from '../common/CustomDropdown';
 import { Tooltip } from '../common/Tooltip';
-import { Search, X, RotateCcw } from 'lucide-react';
+import { Search, X, RotateCcw, LayoutGrid, List } from 'lucide-react';
 
 interface ModelFiltersProps {
   filters: FilterState;
@@ -11,6 +11,8 @@ interface ModelFiltersProps {
   totalFiltered: number;
   totalModels: number;
   availableProviders: { slug: string; name: string }[];
+  viewMode: 'grid' | 'list';
+  onViewModeChange: (mode: 'grid' | 'list') => void;
 }
 
 export const ModelFilters: React.FC<ModelFiltersProps> = ({
@@ -19,6 +21,8 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
   totalFiltered,
   totalModels,
   availableProviders,
+  viewMode,
+  onViewModeChange,
 }) => {
   const { t } = useLanguage();
 
@@ -99,7 +103,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
   ];
 
   return (
-    <div className="w-full space-y-3 mb-6">
+    <div className="w-full space-y-3 mb-6 relative z-30">
       {/* Sleek Minimalist Tool Ribbon */}
       <div className="flex flex-col md:flex-row items-stretch md:items-center gap-2.5">
         {/* Search Input: Solid borders & background */}
@@ -179,7 +183,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
         </div>
       </div>
 
-      {/* Streamlined Live Count Header */}
+      {/* Streamlined Live Count Header & Grid/List Switcher */}
       <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 dark:text-neutral-400 px-0.5">
         <div className="flex items-center gap-2">
           <span>
@@ -192,6 +196,36 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
           {hasActiveFilters && (
             <span className="w-1.5 h-1.5 rounded-full bg-[#ff3d5c] animate-pulse" />
           )}
+        </div>
+
+        {/* Grid / List View Switcher */}
+        <div className="flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-900 shadow-2xs">
+          <Tooltip content={t.filters.gridView} position="top">
+            <button
+              onClick={() => onViewModeChange('grid')}
+              aria-label={t.filters.gridView}
+              className={`p-1.5 rounded-md transition-all cursor-pointer ${
+                viewMode === 'grid'
+                  ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
+                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+              }`}
+            >
+              <LayoutGrid className="w-3.5 h-3.5" />
+            </button>
+          </Tooltip>
+          <Tooltip content={t.filters.listView} position="top">
+            <button
+              onClick={() => onViewModeChange('list')}
+              aria-label={t.filters.listView}
+              className={`p-1.5 rounded-md transition-all cursor-pointer ${
+                viewMode === 'list'
+                  ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
+                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+              }`}
+            >
+              <List className="w-3.5 h-3.5" />
+            </button>
+          </Tooltip>
         </div>
       </div>
     </div>

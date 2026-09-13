@@ -8,6 +8,7 @@ import { DitherWave } from './components/background/DitherWave';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { ModelCard } from './components/models/ModelCard';
+import { ModelListItem } from './components/models/ModelListItem';
 import { ModelFilters } from './components/models/ModelFilters';
 import { ModelDetailModal } from './components/models/ModelDetailModal';
 import { CompareModal } from './components/models/CompareModal';
@@ -28,6 +29,9 @@ export const App: React.FC = () => {
     sortBy: 'popular',
   });
 
+  // View Mode State: Grid vs List
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+
   // Pagination / Display limit
   const [displayCount, setDisplayCount] = useState<number>(36);
 
@@ -35,6 +39,11 @@ export const App: React.FC = () => {
   const [selectedModel, setSelectedModel] = useState<ModelItem | null>(null);
   const [compareList, setCompareList] = useState<ModelItem[]>([]);
   const [isCompareOpen, setIsCompareOpen] = useState<boolean>(false);
+
+  // Reset pagination when any filter changes to prevent weird pagination bugs
+  useEffect(() => {
+    setDisplayCount(36);
+  }, [filters]);
 
   // Body scroll locking when any modal is open
   useEffect(() => {
@@ -246,7 +255,7 @@ export const App: React.FC = () => {
       </section>
 
       {/* Main Catalog Explorer Section */}
-      <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
+      <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 min-h-[600px]">
         {/* Filters & Search Controls */}
         <ModelFilters
           filters={filters}
@@ -254,9 +263,11 @@ export const App: React.FC = () => {
           totalFiltered={filteredModels.length}
           totalModels={MODELS_DATA.length}
           availableProviders={availableProviders}
+          viewMode={viewMode}
+          onViewModeChange={setViewMode}
         />
 
-        {/* Model Cards Grid */}
+        {/* Model Cards Grid or List */}
         {displayedModels.length === 0 ? (
           <div className="py-20 text-center rounded-xl border border-dashed border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900">
             <p className="font-mono text-sm text-neutral-500">
@@ -279,13 +290,29 @@ export const App: React.FC = () => {
               {t.filters.resetFilters}
             </button>
           </div>
-        ) : (
+        ) : viewMode === 'grid' ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {displayedModels.map(model => {
               const modelKey = getModelKey(model);
               const isCompared = compareList.some(m => getModelKey(m) === modelKey);
               return (
                 <ModelCard
+                  key={modelKey}
+                  model={model}
+                  onSelect={setSelectedModel}
+                  isCompared={isCompared}
+                  onToggleCompare={toggleCompare}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div className="flex flex-col gap-2.5">
+            {displayedModels.map(model => {
+              const modelKey = getModelKey(model);
+              const isCompared = compareList.some(m => getModelKey(m) === modelKey);
+              return (
+                <ModelListItem
                   key={modelKey}
                   model={model}
                   onSelect={setSelectedModel}
