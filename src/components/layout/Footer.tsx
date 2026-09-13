@@ -4,7 +4,6 @@ import { useTheme } from '../../context/ThemeContext';
 import { BayerGlobe } from '../background/DitherGlobe';
 import { FooterDitherWaves } from '../background/FooterDitherWaves';
 import { CatLogo } from '../common/CatLogo';
-import { Tooltip } from '../common/Tooltip';
 import { GitHubButton } from '../common/GitHubButton';
 import { ArrowUp } from 'lucide-react';
 
@@ -55,15 +54,13 @@ export const Footer: React.FC = () => {
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 mt-2">
                 <GitHubButton />
 
-                <Tooltip content={t.tooltips.backToTop} position="top">
-                  <button
-                    onClick={scrollToTop}
-                    className="h-9 px-3 inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:text-accent hover:border-accent text-xs font-mono font-semibold transition-colors cursor-pointer shadow-xs"
-                  >
-                    <span>{t.footer.backToTop}</span>
-                    <ArrowUp className="w-3.5 h-3.5" />
-                  </button>
-                </Tooltip>
+                <button
+                  onClick={scrollToTop}
+                  className="h-9 px-3 inline-flex items-center gap-1.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:text-accent hover:border-accent text-xs font-mono font-semibold transition-colors cursor-pointer shadow-xs"
+                >
+                  <span>{t.footer.backToTop}</span>
+                  <ArrowUp className="w-3.5 h-3.5" />
+                </button>
               </div>
             </div>
           </div>

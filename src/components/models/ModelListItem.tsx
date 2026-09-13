@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ModelItem } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { ModelLogo } from '../common/ModelLogo';
-import { Tooltip } from '../common/Tooltip';
 import { Copy, Check, ExternalLink, Zap } from 'lucide-react';
 
 interface ModelListItemProps {
@@ -43,31 +42,27 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
       {/* Left Column: Checkbox, Logo, Model Name, ID & Provider */}
       <div className="flex items-center gap-3 min-w-0 flex-1">
         {/* Solid Compare Checkbox */}
-        <Tooltip
-          content={isCompared ? t.tooltips.compareRemove : t.tooltips.compareAdd}
-          position="top"
+        <button
+          type="button"
+          aria-label={t.card.compare}
+          title={isCompared ? t.tooltips.compareRemove : t.tooltips.compareAdd}
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            onToggleCompare(model);
+          }}
+          className="cursor-pointer p-0.5 rounded focus:outline-none shrink-0"
         >
-          <button
-            type="button"
-            aria-label={t.card.compare}
-            onClick={(e) => {
-              e.stopPropagation();
-              e.preventDefault();
-              onToggleCompare(model);
-            }}
-            className="cursor-pointer p-0.5 rounded focus:outline-none shrink-0"
-          >
-            {isCompared ? (
-              <div className="w-5 h-5 rounded flex items-center justify-center bg-[#ff3d5c] border border-[#ff3d5c] text-white shadow-xs">
-                <Check className="w-3.5 h-3.5 text-white stroke-[3]" />
-              </div>
-            ) : (
-              <div className="w-5 h-5 rounded flex items-center justify-center bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 text-transparent hover:border-neutral-500 dark:hover:border-neutral-400 transition-colors">
-                <Check className="w-3.5 h-3.5 opacity-0" />
-              </div>
-            )}
-          </button>
-        </Tooltip>
+          {isCompared ? (
+            <div className="w-5 h-5 rounded flex items-center justify-center bg-[#ff3d5c] border border-[#ff3d5c] text-white shadow-xs">
+              <Check className="w-3.5 h-3.5 text-white stroke-[3]" />
+            </div>
+          ) : (
+            <div className="w-5 h-5 rounded flex items-center justify-center bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 text-transparent hover:border-neutral-500 dark:hover:border-neutral-400 transition-colors">
+              <Check className="w-3.5 h-3.5 opacity-0" />
+            </div>
+          )}
+        </button>
 
         {/* Real Brand Logo */}
         <div className="shrink-0">
@@ -77,7 +72,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
             providerSlug={model.providerSlug}
             providerName={model.provider}
             size={24}
-            className="rounded-xs"
+            className="rounded-xs shrink-0"
           />
         </div>
 
@@ -135,51 +130,46 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
       {/* Right Column: Status & Action Buttons */}
       <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-neutral-100 dark:border-neutral-800/80">
         {/* Status Dot */}
-        <Tooltip
-          content={isOperational ? t.tooltips.operational : t.tooltips.degraded}
-          position="top"
-        >
-          <span
-            className={`w-2 h-2 rounded-full cursor-help block shrink-0 ${
-              isOperational ? 'bg-emerald-500' : 'bg-amber-500'
-            }`}
-          />
-        </Tooltip>
+        <span
+          title={isOperational ? t.tooltips.operational : t.tooltips.degraded}
+          className={`w-2 h-2 rounded-full cursor-help block shrink-0 ${
+            isOperational ? 'bg-emerald-500' : 'bg-amber-500'
+          }`}
+        />
 
         {/* Copy ID Button */}
-        <Tooltip content={copied ? t.card.copied : t.tooltips.copyId} position="top">
-          <button
-            onClick={handleCopy}
-            className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors py-1 px-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer"
-          >
-            {copied ? (
-              <>
-                <Check className="w-3 h-3 text-emerald-500 stroke-[3]" />
-                <span className="text-emerald-500 font-bold">{t.card.copied}</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-3 h-3" />
-                <span className="hidden sm:inline">{t.card.copyId}</span>
-              </>
-            )}
-          </button>
-        </Tooltip>
+        <button
+          type="button"
+          onClick={handleCopy}
+          title={copied ? t.card.copied : t.tooltips.copyId}
+          className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors py-1 px-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer"
+        >
+          {copied ? (
+            <>
+              <Check className="w-3 h-3 text-emerald-500 stroke-[3]" />
+              <span className="text-emerald-500 font-bold">{t.card.copied}</span>
+            </>
+          ) : (
+            <>
+              <Copy className="w-3 h-3" />
+              <span className="hidden sm:inline">{t.card.copyId}</span>
+            </>
+          )}
+        </button>
 
         {/* Get Key Button */}
         {model.url && (
-          <Tooltip content={t.tooltips.visitConsole} position="top">
-            <a
-              href={model.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={(e) => e.stopPropagation()}
-              className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-white hover:bg-[#ff3d5c] dark:hover:bg-[#ff3d5c] hover:border-[#ff3d5c] transition-colors py-1 px-2.5 rounded bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 cursor-pointer shadow-2xs"
-            >
-              <span>{t.card.getKey}</span>
-              <ExternalLink className="w-3 h-3" />
-            </a>
-          </Tooltip>
+          <a
+            href={model.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            title={t.tooltips.visitConsole}
+            className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-white hover:bg-[#ff3d5c] dark:hover:bg-[#ff3d5c] hover:border-[#ff3d5c] transition-colors py-1 px-2.5 rounded bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 cursor-pointer shadow-2xs"
+          >
+            <span>{t.card.getKey}</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
         )}
       </div>
     </div>

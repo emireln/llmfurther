@@ -2,7 +2,6 @@ import React from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { CatLogo } from '../common/CatLogo';
-import { Tooltip } from '../common/Tooltip';
 import { GitHubButton } from '../common/GitHubButton';
 import { Sun, Moon, Scale } from 'lucide-react';
 
@@ -44,47 +43,48 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           )}
 
-          {/* GitHub Button with Dither Hover Animation */}
+          {/* GitHub Button */}
           <GitHubButton />
 
-          {/* Language Switcher */}
-          <div className="h-9 flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-xs font-mono shadow-xs">
-            <Tooltip content={t.tooltips.switchEn} position="bottom">
-              <button
-                onClick={() => setLanguage('en')}
-                className={`h-7.5 px-2.5 rounded-md font-semibold text-xs flex items-center justify-center transition-colors cursor-pointer ${
-                  language === 'en'
-                    ? 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs'
-                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
-                }`}
-              >
-                EN
-              </button>
-            </Tooltip>
-            <Tooltip content={t.tooltips.switchPt} position="bottom">
-              <button
-                onClick={() => setLanguage('pt-BR')}
-                className={`h-7.5 px-2.5 rounded-md font-semibold text-xs flex items-center justify-center transition-colors cursor-pointer ${
-                  language === 'pt-BR'
-                    ? 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs'
-                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-950 dark:hover:text-white'
-                }`}
-              >
-                PT
-              </button>
-            </Tooltip>
+          {/* Clean Segmented Language Switcher (Bug-free, no tooltips) */}
+          <div className="h-9 flex items-center p-1 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-xs font-mono shadow-xs">
+            <button
+              type="button"
+              onClick={() => setLanguage('en')}
+              className={`h-7 px-2.5 rounded-md font-semibold text-xs flex items-center justify-center transition-all cursor-pointer ${
+                language === 'en'
+                  ? 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs font-bold'
+                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+              }`}
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => setLanguage('pt-BR')}
+              className={`h-7 px-2.5 rounded-md font-semibold text-xs flex items-center justify-center transition-all cursor-pointer ${
+                language === 'pt-BR'
+                  ? 'bg-white dark:bg-neutral-900 text-neutral-950 dark:text-white shadow-xs font-bold'
+                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+              }`}
+            >
+              PT
+            </button>
           </div>
 
-          {/* Theme Toggle */}
-          <Tooltip content={theme === 'dark' ? t.tooltips.lightMode : t.tooltips.darkMode} position="bottom">
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className="h-9 w-9 flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors cursor-pointer shadow-xs"
-            >
-              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-neutral-700" />}
-            </button>
-          </Tooltip>
+          {/* Theme Toggle: Clean Minimalist Monochrome Icons */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={theme === 'dark' ? t.tooltips.lightMode : t.tooltips.darkMode}
+            className="h-9 w-9 flex items-center justify-center rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors cursor-pointer shadow-xs"
+          >
+            {theme === 'dark' ? (
+              <Sun className="w-4 h-4 stroke-[2]" />
+            ) : (
+              <Moon className="w-4 h-4 stroke-[2]" />
+            )}
+          </button>
         </div>
       </div>
     </header>

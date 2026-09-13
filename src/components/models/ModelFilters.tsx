@@ -2,7 +2,6 @@ import React from 'react';
 import { FilterState } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { CustomDropdown, DropdownOption } from '../common/CustomDropdown';
-import { Tooltip } from '../common/Tooltip';
 import { Search, X, RotateCcw, LayoutGrid, List } from 'lucide-react';
 
 interface ModelFiltersProps {
@@ -168,17 +167,17 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             onChange={val => onChange({ ...filters, sortBy: val as FilterState['sortBy'] })}
           />
 
-          {/* Clear Filters Button with Tooltip */}
+          {/* Clear Filters Button */}
           {hasActiveFilters && (
-            <Tooltip content={t.filters.clearAll} position="top">
-              <button
-                onClick={resetFilters}
-                className="p-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 hover:text-[#ff3d5c] hover:border-[#ff3d5c] transition-colors shrink-0 cursor-pointer shadow-xs"
-                aria-label={t.filters.clearAll}
-              >
-                <RotateCcw className="w-3.5 h-3.5" />
-              </button>
-            </Tooltip>
+            <button
+              type="button"
+              onClick={resetFilters}
+              title={t.filters.clearAll}
+              className="p-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 hover:text-[#ff3d5c] hover:border-[#ff3d5c] transition-colors shrink-0 cursor-pointer shadow-xs"
+              aria-label={t.filters.clearAll}
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+            </button>
           )}
         </div>
       </div>
@@ -200,32 +199,32 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
 
         {/* Grid / List View Switcher */}
         <div className="flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-900 shadow-2xs">
-          <Tooltip content={t.filters.gridView} position="top">
-            <button
-              onClick={() => onViewModeChange('grid')}
-              aria-label={t.filters.gridView}
-              className={`p-1.5 rounded-md transition-all cursor-pointer ${
-                viewMode === 'grid'
-                  ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
-                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
-              }`}
-            >
-              <LayoutGrid className="w-3.5 h-3.5" />
-            </button>
-          </Tooltip>
-          <Tooltip content={t.filters.listView} position="top">
-            <button
-              onClick={() => onViewModeChange('list')}
-              aria-label={t.filters.listView}
-              className={`p-1.5 rounded-md transition-all cursor-pointer ${
-                viewMode === 'list'
-                  ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
-                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
-              }`}
-            >
-              <List className="w-3.5 h-3.5" />
-            </button>
-          </Tooltip>
+          <button
+            type="button"
+            onClick={() => onViewModeChange('grid')}
+            aria-label={t.filters.gridView}
+            title={t.filters.gridView}
+            className={`p-1.5 rounded-md transition-all cursor-pointer ${
+              viewMode === 'grid'
+                ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
+                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+            }`}
+          >
+            <LayoutGrid className="w-3.5 h-3.5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => onViewModeChange('list')}
+            aria-label={t.filters.listView}
+            title={t.filters.listView}
+            className={`p-1.5 rounded-md transition-all cursor-pointer ${
+              viewMode === 'list'
+                ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
+                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
+            }`}
+          >
+            <List className="w-3.5 h-3.5" />
+          </button>
         </div>
       </div>
     </div>
