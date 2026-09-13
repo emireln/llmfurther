@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-page: #f9fafb;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f3f4f6;
+    --border-subtle: #e5e7eb;
+    --border-strong: #d1d5db;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
+    --accent-red: #ff3d5c;
+  }
+
+  .dark {
+    --bg-page: #080808;
+    --bg-surface: #101010;
+    --bg-surface-elevated: #161616;
+    --border-subtle: #222222;
+    --border-strong: #333333;
+    --text-primary: #f5f5f5;
+    --text-secondary: #a3a3a3;
+    --text-muted: #525252;
+    --accent-red: #ff3d5c;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Minimalist Dither Texture & Border Patterns */
+.dither-border {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--border-subtle);
+  background-image: radial-gradient(var(--border-subtle) 1px, transparent 0);
+  background-size: 8px 8px;
+}
+
+.dither-grid-bg {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(128, 128, 128, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.05) 1px, transparent 1px);
+}
+
+.dark .dither-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Crisp Retro Dither Pattern for Badges and Buttons */
+.pattern-dots {
+  background-image: radial-gradient(currentColor 0.75px, transparent 0.75px);
+  background-size: 4px 4px;
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 61, 92, 0.6);
+}
