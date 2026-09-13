@@ -33,14 +33,14 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Right Actions: All buttons standardized to exact same height (h-9 / 36px) */}
         <div className="flex items-center gap-2 sm:gap-2.5">
-          {/* Compare Button (When active) */}
+          {/* Side by Side Button: Desktop / larger screens only (hidden on mobile) */}
           {compareCount > 0 && (
             <button
               onClick={onOpenCompare}
-              className="h-9 px-3 inline-flex items-center justify-center gap-1.5 text-xs font-mono font-semibold rounded-lg border border-[#ff3d5c] bg-[#ff3d5c] text-white hover:bg-[#e02e4c] shadow-xs transition-colors cursor-pointer"
+              className="hidden sm:inline-flex h-9 px-3 items-center justify-center gap-1.5 text-xs font-mono font-semibold rounded-lg border border-[#ff3d5c] bg-[#ff3d5c] text-white hover:bg-[#e02e4c] shadow-xs transition-colors cursor-pointer"
             >
               <Scale className="w-3.5 h-3.5" />
-              <span>{t.compare.title.split(' ')[0]} ({compareCount})</span>
+              <span>{t.compare.sideBySide} ({compareCount}/3)</span>
             </button>
           )}
 

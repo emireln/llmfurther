@@ -106,6 +106,7 @@ export const translations = {
     },
     compare: {
       title: "Side-by-Side Model Comparison",
+      sideBySide: "Side by Side",
       emptyNotice: "Select up to 3 models using the 'Compare' button on each card to inspect limits and benchmarks.",
       clearCompare: "Clear Comparison",
       metric: "Specification",
@@ -237,6 +238,7 @@ export const translations = {
     },
     compare: {
       title: "Comparação Lado a Lado de Modelos",
+      sideBySide: "Lado a Lado",
       emptyNotice: "Selecione até 3 modelos usando o botão 'Comparar' em qualquer cartão para contrastar cotas e limites.",
       clearCompare: "Limpar Comparação",
       metric: "Especificação",

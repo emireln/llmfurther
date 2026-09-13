@@ -325,15 +325,15 @@ export const App: React.FC = () => {
         onClear={clearCompare}
       />
 
-      {/* Floating Compare Action Pill: Solid Colors */}
+      {/* Floating Side-by-Side Action Pill: Mobile / Smaller screens only (sm:hidden) */}
       {compareList.length > 0 && !isCompareOpen && (
-        <div className="fixed bottom-6 right-6 z-40">
+        <div className="sm:hidden fixed bottom-5 inset-x-4 z-40 flex justify-center pointer-events-none">
           <button
             onClick={() => setIsCompareOpen(true)}
-            className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#ff3d5c] text-white font-mono text-xs font-bold shadow-xl hover:bg-[#e02e4c] hover:scale-105 active:scale-95 transition-all cursor-pointer border border-[#ff3d5c]"
+            className="pointer-events-auto w-full max-w-sm flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-[#ff3d5c] text-white font-mono text-xs font-bold shadow-2xl hover:bg-[#e02e4c] active:scale-98 transition-all cursor-pointer border border-[#ff3d5c]"
           >
             <Scale className="w-4 h-4" />
-            <span>{t.compare.title} ({compareList.length}/3)</span>
+            <span>{t.compare.sideBySide} ({compareList.length}/3)</span>
           </button>
         </div>
       )}
