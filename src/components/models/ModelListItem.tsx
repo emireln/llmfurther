@@ -99,7 +99,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
           {model.access?.slice(0, 1).map((acc) => (
             <span
               key={acc}
-              className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700"
+              className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-850 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-750"
             >
               {t.accessLabels[acc as keyof typeof t.accessLabels] || acc}
             </span>
@@ -112,7 +112,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
           )}
 
           {model.sweScore && (
-            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[#ff3d5c] border border-neutral-300 dark:border-neutral-700 font-bold">
+            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-850 text-[#ff3d5c] border border-neutral-300 dark:border-neutral-750 font-bold">
               SWE: {model.sweScore}
             </span>
           )}
@@ -128,7 +128,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
       </div>
 
       {/* Right Column: Status & Action Buttons */}
-      <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-neutral-100 dark:border-neutral-700">
+      <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-neutral-100 dark:border-neutral-800">
         {/* Status Dot */}
         <span
           title={isOperational ? t.tooltips.operational : t.tooltips.degraded}
@@ -165,7 +165,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
             title={t.tooltips.visitConsole}
-            className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-white hover:bg-[#ff3d5c] dark:hover:bg-[#ff3d5c] hover:border-[#ff3d5c] transition-colors py-1 px-2.5 rounded bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 cursor-pointer shadow-2xs"
+            className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-white hover:bg-[#ff3d5c] dark:hover:bg-[#ff3d5c] hover:border-[#ff3d5c] transition-colors py-1 px-2.5 rounded bg-neutral-100 dark:bg-neutral-850 border border-neutral-300 dark:border-neutral-750 cursor-pointer shadow-2xs"
           >
             <span>{t.card.getKey}</span>
             <ExternalLink className="w-3 h-3" />

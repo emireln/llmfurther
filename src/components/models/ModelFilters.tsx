@@ -113,7 +113,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             value={filters.search}
             onChange={handleSearchChange}
             placeholder={t.searchPlaceholder}
-            className="w-full pl-10 pr-9 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-400 text-xs font-mono focus:outline-none focus:border-[#ff3d5c] dark:focus:border-[#ff3d5c] focus:ring-1 focus:ring-[#ff3d5c] transition-all"
+            className="w-full pl-10 pr-9 py-2 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-400 text-xs font-mono focus:outline-none focus:border-[#ff3d5c] dark:focus:border-[#ff3d5c] focus:ring-1 focus:ring-[#ff3d5c] transition-all"
           />
           {filters.search && (
             <button
@@ -200,7 +200,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
         </div>
 
         {/* Grid / List View Switcher */}
-        <div className="flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 shadow-2xs">
+        <div className="flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-850 shadow-2xs">
           <button
             type="button"
             onClick={() => onViewModeChange('grid')}

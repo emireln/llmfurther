@@ -103,7 +103,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
           {model.access?.slice(0, 2).map((acc) => (
             <span
               key={acc}
-              className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-700"
+              className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-850 text-neutral-800 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-750"
             >
               {t.accessLabels[acc as keyof typeof t.accessLabels] || acc}
             </span>
@@ -116,14 +116,14 @@ export const ModelCard: React.FC<ModelCardProps> = ({
           )}
 
           {model.sweScore && (
-            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-800 text-[#ff3d5c] border border-neutral-300 dark:border-neutral-700 font-bold">
+            <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-850 text-[#ff3d5c] border border-neutral-300 dark:border-neutral-750 font-bold">
               SWE: {model.sweScore}
             </span>
           )}
         </div>
 
         {/* Free Limit / Quota Highlight */}
-        <div className="mt-3 pt-2.5 border-t border-neutral-200 dark:border-neutral-700 min-h-[44px] flex items-center">
+        <div className="mt-3 pt-2.5 border-t border-neutral-200 dark:border-neutral-800 min-h-[44px] flex items-center">
           <div className="flex items-start gap-1.5 text-xs text-neutral-800 dark:text-neutral-200">
             <Zap className="w-3.5 h-3.5 text-[#ff3d5c] shrink-0 mt-0.5" />
             <span className="line-clamp-2 leading-relaxed font-sans text-[12px]">
@@ -134,7 +134,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
       </div>
 
       {/* Bottom Actions */}
-      <div className="mt-auto pt-2.5 flex items-center justify-between gap-2 border-t border-neutral-200 dark:border-neutral-700 text-xs shrink-0">
+      <div className="mt-auto pt-2.5 flex items-center justify-between gap-2 border-t border-neutral-200 dark:border-neutral-800 text-xs shrink-0">
         <button
           type="button"
           onClick={handleCopy}
@@ -162,7 +162,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
               title={t.tooltips.visitConsole}
-              className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-white hover:bg-[#ff3d5c] dark:hover:bg-[#ff3d5c] hover:border-[#ff3d5c] transition-colors py-1 px-2 rounded bg-neutral-100 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 cursor-pointer shadow-2xs"
+              className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-neutral-800 dark:text-neutral-200 hover:text-white dark:hover:text-white hover:bg-[#ff3d5c] dark:hover:bg-[#ff3d5c] hover:border-[#ff3d5c] transition-colors py-1 px-2 rounded bg-neutral-100 dark:bg-neutral-850 border border-neutral-300 dark:border-neutral-750 cursor-pointer shadow-2xs"
             >
               <span>{t.card.getKey}</span>
               <ExternalLink className="w-3 h-3" />

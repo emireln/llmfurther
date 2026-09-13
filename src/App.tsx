@@ -185,9 +185,9 @@ export const App: React.FC = () => {
       />
 
       {/* Hero Section with Live Dither Wave Background */}
-      <section className="relative overflow-hidden border-b border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900">
+      <section className="relative overflow-hidden border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">
         {/* Exact Dither Wave WebGL Canvas Component with 100% Transparent Background */}
-        <div className="absolute inset-0 z-0 opacity-45 dark:opacity-55 pointer-events-none">
+        <div className="absolute inset-0 z-0 opacity-40 dark:opacity-50 pointer-events-none">
           <DitherWave
             speed={0.7}
             intensity={3}
@@ -211,7 +211,7 @@ export const App: React.FC = () => {
 
           {/* Key Metric Counters: Solid Styling with Strong Gray in Dark Mode */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mt-10">
-            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-[#ff3d5c] block">
                 {MODELS_DATA.length}+
               </span>
@@ -220,7 +220,7 @@ export const App: React.FC = () => {
               </span>
             </div>
 
-            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100 block">
                 {PROVIDERS_DATA.length}
               </span>
@@ -229,7 +229,7 @@ export const App: React.FC = () => {
               </span>
             </div>
 
-            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100 block">
                 100%
               </span>
@@ -238,7 +238,7 @@ export const App: React.FC = () => {
               </span>
             </div>
 
-            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-[#ff3d5c] block">
                 50+
               </span>

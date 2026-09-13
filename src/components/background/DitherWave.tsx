@@ -133,17 +133,7 @@ export const DitherWave: React.FC<DitherWaveProps> = ({
       uniform float uDownScale;
       uniform float uOpacity;
 
-      uniform vec3 uColor1;
       uniform vec3 uColor2;
-      uniform vec3 uColor3;
-
-      vec3 colors[COLOR_COUNT];
-
-      void setupColorPalette() {
-        colors[0] = uColor1;
-        colors[1] = uColor2;
-        colors[2] = uColor3;
-      }
 
       float Bayer2(vec2 a) {
         a = floor(a);
@@ -156,22 +146,22 @@ export const DitherWave: React.FC<DitherWaveProps> = ({
       #define Bayer32(a)  (Bayer16(0.5 * (a)) * 0.25 + Bayer2(a))
       #define Bayer64(a)  (Bayer32(0.5 * (a)) * 0.25 + Bayer2(a))
 
-      vec3 applyDitheredColor(float value, vec2 pixelCoord) {
-        float paletteIndex = clamp(value, 0.0, 1.0) * float(COLOR_COUNT - 1);
+      vec4 applyDitheredColor(float value, vec2 pixelCoord) {
+        float paletteIndex = clamp(value, 0.0, 1.0) * 2.0;
 
-        vec3 colorA = vec3(0.0);
-        vec3 colorB = vec3(0.0);
+        if (paletteIndex >= 1.99) {
+          return vec4(uColor2, 0.0);
+        }
 
-        for (int i = 0; i < COLOR_COUNT; i++) {
-          if (float(i) == floor(paletteIndex)) {
-            colorA = colors[i];
-            if (i < COLOR_COUNT - 1) {
-              colorB = colors[i + 1];
-            } else {
-              colorB = colorA;
-            }
-            break;
-          }
+        vec4 colorA;
+        vec4 colorB;
+
+        if (paletteIndex < 1.0) {
+          colorA = vec4(uColor2, 0.0);
+          colorB = vec4(uColor2, 1.0);
+        } else {
+          colorA = vec4(uColor2, 1.0);
+          colorB = vec4(uColor2, 0.0);
         }
 
         float ditherValue = Bayer64(pixelCoord * 0.25);
@@ -215,15 +205,11 @@ export const DitherWave: React.FC<DitherWaveProps> = ({
         float colorValue = length(field) * uIntensity;
         colorValue = clamp(colorValue, 0.0, 1.0);
 
-        float ditherValue = Bayer64((gl_FragCoord.xy / uDownScale) * 0.25);
-
-        // 100% Transparent background: only render active wave dither dots
-        if (colorValue > ditherValue + 0.18) {
-          float peak = smoothstep(0.65, 1.0, colorValue);
-          vec3 dotColor = mix(uColor2, vec3(1.0, 0.85, 0.88), peak * 0.35);
-          gl_FragColor = vec4(dotColor, uOpacity);
-        } else {
+        vec4 finalColor = applyDitheredColor(colorValue, gl_FragCoord.xy / uDownScale);
+        if (finalColor.a < 0.5) {
           discard;
+        } else {
+          gl_FragColor = vec4(finalColor.rgb, uOpacity);
         }
       }
     `;
