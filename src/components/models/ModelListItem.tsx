@@ -36,7 +36,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
       className={`group relative flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 rounded-lg border bg-white dark:bg-neutral-900 transition-all duration-150 cursor-pointer select-none ${
         isCompared
           ? 'border-[#ff3d5c] ring-1 ring-[#ff3d5c]'
-          : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 hover:shadow-xs'
+          : 'border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 hover:shadow-xs'
       }`}
     >
       {/* Left Column: Checkbox, Logo, Model Name, ID & Provider */}
@@ -82,11 +82,11 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
             <h3 className="font-bold text-sm text-neutral-900 dark:text-neutral-100 group-hover:text-accent transition-colors truncate">
               {model.name || model.id}
             </h3>
-            <span className="text-[11px] font-mono text-neutral-500 dark:text-neutral-400 shrink-0 hidden md:inline">
+            <span className="text-[11px] font-mono text-neutral-500 dark:text-neutral-300 shrink-0 hidden md:inline">
               · {model.provider}
             </span>
           </div>
-          <p className="font-mono text-[11px] text-neutral-400 dark:text-neutral-500 truncate select-all">
+          <p className="font-mono text-[11px] text-neutral-400 dark:text-neutral-400 truncate select-all">
             {model.id}
           </p>
         </div>
@@ -94,7 +94,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
 
       {/* Middle Column: Badges & Quota */}
       <div className="flex flex-wrap items-center gap-2 sm:max-w-md shrink-0">
-        {/* Badges */}
+        {/* Badges: Strong Gray in Dark Mode */}
         <div className="flex items-center gap-1.5 flex-wrap">
           {model.access?.slice(0, 1).map((acc) => (
             <span
@@ -128,7 +128,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
       </div>
 
       {/* Right Column: Status & Action Buttons */}
-      <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-neutral-100 dark:border-neutral-800/80">
+      <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 border-t sm:border-t-0 pt-2 sm:pt-0 border-neutral-100 dark:border-neutral-700">
         {/* Status Dot */}
         <span
           title={isOperational ? t.tooltips.operational : t.tooltips.degraded}
@@ -142,7 +142,7 @@ export const ModelListItem: React.FC<ModelListItemProps> = ({
           type="button"
           onClick={handleCopy}
           title={copied ? t.card.copied : t.tooltips.copyId}
-          className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors py-1 px-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer"
+          className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white transition-colors py-1 px-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer"
         >
           {copied ? (
             <>

@@ -113,7 +113,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             value={filters.search}
             onChange={handleSearchChange}
             placeholder={t.searchPlaceholder}
-            className="w-full pl-10 pr-9 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 text-xs font-mono focus:outline-none focus:border-[#ff3d5c] dark:focus:border-[#ff3d5c] focus:ring-1 focus:ring-[#ff3d5c] transition-all"
+            className="w-full pl-10 pr-9 py-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-400 text-xs font-mono focus:outline-none focus:border-[#ff3d5c] dark:focus:border-[#ff3d5c] focus:ring-1 focus:ring-[#ff3d5c] transition-all"
           />
           {filters.search && (
             <button
@@ -173,7 +173,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
               type="button"
               onClick={resetFilters}
               title={t.filters.clearAll}
-              className="p-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 hover:text-[#ff3d5c] hover:border-[#ff3d5c] transition-colors shrink-0 cursor-pointer shadow-xs"
+              className="p-2 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-[#ff3d5c] hover:border-[#ff3d5c] dark:hover:border-neutral-500 transition-colors shrink-0 cursor-pointer shadow-xs"
               aria-label={t.filters.clearAll}
             >
               <RotateCcw className="w-3.5 h-3.5" />
@@ -183,7 +183,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
       </div>
 
       {/* Streamlined Live Count Header & Grid/List Switcher */}
-      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 dark:text-neutral-400 px-0.5">
+      <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 dark:text-neutral-300 px-0.5">
         <div className="flex items-center gap-2">
           <span>
             {t.filters.showing}{' '}
@@ -198,7 +198,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
         </div>
 
         {/* Grid / List View Switcher */}
-        <div className="flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-900 shadow-2xs">
+        <div className="flex items-center p-0.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 shadow-2xs">
           <button
             type="button"
             onClick={() => onViewModeChange('grid')}
@@ -206,7 +206,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             title={t.filters.gridView}
             className={`p-1.5 rounded-md transition-all cursor-pointer ${
               viewMode === 'grid'
-                ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
+                ? 'bg-white dark:bg-neutral-900 text-[#ff3d5c] shadow-xs'
                 : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
             }`}
           >
@@ -219,7 +219,7 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             title={t.filters.listView}
             className={`p-1.5 rounded-md transition-all cursor-pointer ${
               viewMode === 'list'
-                ? 'bg-white dark:bg-neutral-800 text-[#ff3d5c] shadow-xs'
+                ? 'bg-white dark:bg-neutral-900 text-[#ff3d5c] shadow-xs'
                 : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-200'
             }`}
           >

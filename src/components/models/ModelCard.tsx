@@ -36,7 +36,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
       className={`group relative flex flex-col justify-between rounded-lg border bg-white dark:bg-neutral-900 transition-all duration-150 cursor-pointer p-4 select-none min-w-0 h-full ${
         isCompared
           ? 'border-[#ff3d5c] ring-1 ring-[#ff3d5c]'
-          : 'border-neutral-200 dark:border-neutral-800 hover:border-neutral-400 dark:hover:border-neutral-600 hover:shadow-xs'
+          : 'border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-500 hover:shadow-xs'
       }`}
     >
       <div className="flex-1 min-w-0 flex flex-col">
@@ -51,7 +51,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
               size={20}
               className="rounded-xs shrink-0"
             />
-            <span className="text-xs font-mono font-medium text-neutral-500 dark:text-neutral-400 truncate">
+            <span className="text-xs font-mono font-medium text-neutral-500 dark:text-neutral-300 truncate">
               {model.provider}
             </span>
           </div>
@@ -94,11 +94,11 @@ export const ModelCard: React.FC<ModelCardProps> = ({
         <h3 className="font-bold text-sm text-neutral-900 dark:text-neutral-100 group-hover:text-accent transition-colors truncate">
           {model.name || model.id}
         </h3>
-        <p className="font-mono text-[11px] text-neutral-400 dark:text-neutral-500 truncate mt-0.5 select-all">
+        <p className="font-mono text-[11px] text-neutral-400 dark:text-neutral-400 truncate mt-0.5 select-all">
           {model.id}
         </p>
 
-        {/* Solid Badges: Access, Context, SWE */}
+        {/* Solid Badges: Strong Gray in Dark Mode */}
         <div className="flex flex-wrap items-center gap-1.5 mt-3">
           {model.access?.slice(0, 2).map((acc) => (
             <span
@@ -123,7 +123,7 @@ export const ModelCard: React.FC<ModelCardProps> = ({
         </div>
 
         {/* Free Limit / Quota Highlight */}
-        <div className="mt-3 pt-2.5 border-t border-neutral-200 dark:border-neutral-800 min-h-[44px] flex items-center">
+        <div className="mt-3 pt-2.5 border-t border-neutral-200 dark:border-neutral-700 min-h-[44px] flex items-center">
           <div className="flex items-start gap-1.5 text-xs text-neutral-800 dark:text-neutral-200">
             <Zap className="w-3.5 h-3.5 text-[#ff3d5c] shrink-0 mt-0.5" />
             <span className="line-clamp-2 leading-relaxed font-sans text-[12px]">
@@ -134,12 +134,12 @@ export const ModelCard: React.FC<ModelCardProps> = ({
       </div>
 
       {/* Bottom Actions */}
-      <div className="mt-auto pt-2.5 flex items-center justify-between gap-2 border-t border-neutral-200 dark:border-neutral-800 text-xs shrink-0">
+      <div className="mt-auto pt-2.5 flex items-center justify-between gap-2 border-t border-neutral-200 dark:border-neutral-700 text-xs shrink-0">
         <button
           type="button"
           onClick={handleCopy}
           title={copied ? t.card.copied : t.tooltips.copyId}
-          className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-100 transition-colors py-1 px-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer"
+          className="inline-flex items-center gap-1 text-[11px] font-mono text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white transition-colors py-1 px-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 cursor-pointer"
         >
           {copied ? (
             <>

@@ -187,7 +187,7 @@ export const App: React.FC = () => {
       />
 
       {/* Hero Section with Live Dither Wave Background */}
-      <section className="relative overflow-hidden border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950">
+      <section className="relative overflow-hidden border-b border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900">
         {/* Exact Dither Wave WebGL Canvas Component */}
         <div className="absolute inset-0 z-0 opacity-45 dark:opacity-55 pointer-events-none">
           <DitherWave
@@ -196,8 +196,8 @@ export const App: React.FC = () => {
             scale={2.5}
             downScale={0.8500000000000001}
             secondaryColor="#ff3d5c"
-            primaryColor={theme === 'dark' ? '#161616' : '#f0f0f0'}
-            tertiaryColor={theme === 'dark' ? '#080808' : '#fafafa'}
+            primaryColor={theme === 'dark' ? '#1c1d22' : '#f0f0f0'}
+            tertiaryColor={theme === 'dark' ? '#0a0a0c' : '#fafafa'}
           />
         </div>
 
@@ -209,44 +209,44 @@ export const App: React.FC = () => {
           </h1>
 
           {/* Subtitle */}
-          <p className="mt-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="mt-4 text-base sm:text-lg text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto font-sans leading-relaxed">
             {t.subtitle}
           </p>
 
-          {/* Key Metric Counters: Solid Styling (No pastel/translucent colors) */}
+          {/* Key Metric Counters: Solid Styling with Strong Gray in Dark Mode */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto mt-10">
-            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-[#ff3d5c] block">
                 {MODELS_DATA.length}+
               </span>
-              <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider mt-1 block">
+              <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mt-1 block">
                 {t.stats.models}
               </span>
             </div>
 
-            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100 block">
                 {PROVIDERS_DATA.length}
               </span>
-              <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider mt-1 block">
+              <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mt-1 block">
                 {t.stats.providers}
               </span>
             </div>
 
-            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-neutral-100 block">
                 100%
               </span>
-              <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider mt-1 block">
+              <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mt-1 block">
                 {t.stats.freeForever}
               </span>
             </div>
 
-            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs text-left">
+            <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 shadow-xs text-left">
               <span className="font-mono text-2xl sm:text-3xl font-bold text-[#ff3d5c] block">
                 50+
               </span>
-              <span className="text-xs font-mono text-neutral-500 uppercase tracking-wider mt-1 block">
+              <span className="text-xs font-mono text-neutral-500 dark:text-neutral-400 uppercase tracking-wider mt-1 block">
                 {t.stats.dailyQuotas}
               </span>
             </div>
@@ -269,7 +269,7 @@ export const App: React.FC = () => {
 
         {/* Model Cards Grid or List */}
         {displayedModels.length === 0 ? (
-          <div className="py-20 text-center rounded-xl border border-dashed border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+          <div className="py-20 text-center rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900">
             <p className="font-mono text-sm text-neutral-500">
               {t.filters.noResults}
             </p>

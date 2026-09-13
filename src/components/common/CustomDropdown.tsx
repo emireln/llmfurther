@@ -59,7 +59,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         className={`inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg border text-xs font-mono transition-all select-none cursor-pointer ${
           isFiltered
             ? 'border-[#ff3d5c] bg-[#ff3d5c] text-white font-semibold shadow-xs'
-            : 'border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 dark:hover:border-neutral-600'
+            : 'border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:border-neutral-400 dark:hover:border-neutral-500'
         }`}
       >
         <div className="flex items-center gap-1.5 truncate">
@@ -73,13 +73,13 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         <ChevronDown
           className={`w-3.5 h-3.5 shrink-0 transition-transform duration-150 ${
             isOpen ? 'rotate-180' : ''
-          } ${isFiltered ? 'text-white' : 'text-neutral-500'}`}
+          } ${isFiltered ? 'text-white' : 'text-neutral-500 dark:text-neutral-400'}`}
         />
       </button>
 
-      {/* Popover Menu: Solid Background & Borders */}
+      {/* Popover Menu: Solid Background & Stronger Gray Borders */}
       {isOpen && (
-        <div className="absolute left-0 mt-1.5 w-52 max-h-64 overflow-y-auto rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-xl z-50 py-1 text-xs font-mono divide-y divide-neutral-100 dark:divide-neutral-800 animate-in fade-in zoom-in-95 duration-100">
+        <div className="absolute left-0 mt-1.5 w-52 max-h-64 overflow-y-auto rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-850 shadow-xl z-50 py-1 text-xs font-mono divide-y divide-neutral-100 dark:divide-neutral-700 animate-in fade-in zoom-in-95 duration-100">
           {options.map(opt => {
             const isSelected = selectedValue === opt.value;
             return (
@@ -92,8 +92,8 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                 }}
                 className={`w-full flex items-center justify-between px-3 py-2 text-left transition-colors cursor-pointer ${
                   isSelected
-                    ? 'bg-neutral-100 dark:bg-neutral-800 text-[#ff3d5c] font-bold'
-                    : 'text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                    ? 'bg-neutral-100 dark:bg-neutral-750 text-[#ff3d5c] font-bold'
+                    : 'text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-750'
                 }`}
               >
                 <span className="truncate">{opt.label}</span>

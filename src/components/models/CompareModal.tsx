@@ -47,15 +47,15 @@ export const CompareModal: React.FC<CompareModalProps> = ({
     >
       <div
         onClick={e => e.stopPropagation()}
-        className="relative w-full max-w-6xl xl:max-w-7xl max-h-[92vh] flex flex-col rounded-xl border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl overflow-hidden"
+        className="relative w-full max-w-6xl xl:max-w-7xl max-h-[92vh] flex flex-col rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-2xl overflow-hidden"
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-5 sm:p-6 border-b border-neutral-200 dark:border-neutral-800">
+        <div className="flex items-center justify-between p-5 sm:p-6 border-b border-neutral-200 dark:border-neutral-700">
           <div>
             <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-50 tracking-tight">
               {t.compare.title}
             </h2>
-            <p className="text-xs sm:text-sm font-mono text-neutral-500 mt-1">
+            <p className="text-xs sm:text-sm font-mono text-neutral-500 dark:text-neutral-400 mt-1">
               {models.length} / 3 {t.compare.modelsSelected}
             </p>
           </div>
@@ -87,21 +87,21 @@ export const CompareModal: React.FC<CompareModalProps> = ({
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-5 sm:p-6">
           {models.length === 0 ? (
-            <div className="py-20 text-center text-sm text-neutral-500 font-mono">
+            <div className="py-20 text-center text-sm text-neutral-500 dark:text-neutral-400 font-mono">
               {t.compare.emptyNotice}
             </div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs sm:text-sm font-mono border-collapse">
                 <thead>
-                  <tr className="border-b border-neutral-200 dark:border-neutral-800 text-neutral-500">
+                  <tr className="border-b border-neutral-200 dark:border-neutral-700 text-neutral-500 dark:text-neutral-400">
                     <th className="p-4 w-48 font-bold text-xs uppercase tracking-wider">{t.compare.metric}</th>
                     {models.map(m => (
                       <th key={getModelKey(m)} className="p-4 min-w-[260px] md:min-w-[300px] text-neutral-900 dark:text-neutral-100">
                         <div className="flex items-start justify-between gap-3">
                           <div className="min-w-0">
                             <div className="font-bold text-base truncate">{m.name || m.id}</div>
-                            <div className="text-xs text-neutral-500 font-medium">{m.provider}</div>
+                            <div className="text-xs text-neutral-500 dark:text-neutral-400 font-medium">{m.provider}</div>
                           </div>
                           <button
                             type="button"
@@ -117,10 +117,10 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                     ))}
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800">
+                <tbody className="divide-y divide-neutral-200 dark:divide-neutral-700">
                   {/* Free Quota */}
                   <tr>
-                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-400">
+                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-300">
                       {t.compare.quota}
                     </td>
                     {models.map(m => (
@@ -132,7 +132,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
 
                   {/* Context Window */}
                   <tr>
-                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-400">
+                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-300">
                       {t.compare.contextWindow}
                     </td>
                     {models.map(m => (
@@ -144,7 +144,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
 
                   {/* SWE-bench */}
                   <tr>
-                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-400">
+                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-300">
                       {t.compare.sweBench}
                     </td>
                     {models.map(m => (
@@ -156,7 +156,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
 
                   {/* Access Requirements */}
                   <tr>
-                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-400">
+                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-300">
                       {t.compare.accessType}
                     </td>
                     {models.map(m => (
@@ -177,7 +177,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
 
                   {/* Operational Status */}
                   <tr>
-                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-400">
+                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-300">
                       {t.compare.status}
                     </td>
                     {models.map(m => (
@@ -196,7 +196,7 @@ export const CompareModal: React.FC<CompareModalProps> = ({
 
                   {/* Direct Link */}
                   <tr>
-                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-400">
+                    <td className="p-4 font-bold text-neutral-500 dark:text-neutral-300">
                       {t.compare.directAction}
                     </td>
                     {models.map(m => (

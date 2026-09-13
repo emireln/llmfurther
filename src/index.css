@@ -16,14 +16,14 @@
   }
 
   .dark {
-    --bg-page: #080808;
-    --bg-surface: #101010;
-    --bg-surface-elevated: #161616;
-    --border-subtle: #222222;
-    --border-strong: #333333;
-    --text-primary: #f5f5f5;
-    --text-secondary: #a3a3a3;
-    --text-muted: #525252;
+    --bg-page: #0a0a0c;
+    --bg-surface: #141518;
+    --bg-surface-elevated: #1e2025;
+    --border-subtle: #333740;
+    --border-strong: #4a4f5c;
+    --text-primary: #f5f5f7;
+    --text-secondary: #c4c8d4;
+    --text-muted: #8a909e;
     --accent-red: #ff3d5c;
   }
 
@@ -52,8 +52,8 @@
 
 .dark .dither-grid-bg {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
 }
 
 /* Crisp Retro Dither Pattern for Badges and Buttons */

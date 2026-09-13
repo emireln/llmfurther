@@ -76,10 +76,10 @@ print(response.choices[0].message.content)`;
     >
       <div
         onClick={e => e.stopPropagation()}
-        className="relative w-full max-w-5xl xl:max-w-6xl max-h-[92vh] flex flex-col rounded-xl border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-2xl overflow-hidden"
+        className="relative w-full max-w-5xl xl:max-w-6xl max-h-[92vh] flex flex-col rounded-xl border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 shadow-2xl overflow-hidden"
       >
         {/* Modal Header */}
-        <div className="flex items-start justify-between p-5 sm:p-6 border-b border-neutral-200 dark:border-neutral-800">
+        <div className="flex items-start justify-between p-5 sm:p-6 border-b border-neutral-200 dark:border-neutral-700">
           <div className="flex items-start gap-4">
             <ModelLogo
               modelId={model.id}
@@ -87,11 +87,11 @@ print(response.choices[0].message.content)`;
               providerSlug={model.providerSlug}
               providerName={model.provider}
               size={42}
-              className="mt-0.5 rounded-sm p-1.5 border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950 shrink-0"
+              className="mt-0.5 rounded-sm p-1.5 border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 shrink-0"
             />
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <span className="text-xs font-mono font-medium text-neutral-500 dark:text-neutral-400">
+                <span className="text-xs font-mono font-medium text-neutral-500 dark:text-neutral-300">
                   {model.provider}
                 </span>
                 <span
@@ -99,14 +99,14 @@ print(response.choices[0].message.content)`;
                     model.status === 'operational' ? 'bg-emerald-500' : 'bg-amber-500'
                   }`}
                 />
-                <span className="text-[11px] font-mono text-neutral-400 capitalize">
+                <span className="text-[11px] font-mono text-neutral-400 dark:text-neutral-400 capitalize">
                   {model.status}
                 </span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-neutral-900 dark:text-neutral-50 tracking-tight">
                 {model.name || model.id}
               </h2>
-              <p className="font-mono text-xs sm:text-sm text-neutral-500 mt-1 select-all">
+              <p className="font-mono text-xs sm:text-sm text-neutral-500 dark:text-neutral-400 mt-1 select-all">
                 {model.id}
               </p>
             </div>
@@ -123,8 +123,8 @@ print(response.choices[0].message.content)`;
           </button>
         </div>
 
-        {/* Free Limit Notice Banner: Solid Background */}
-        <div className="bg-neutral-100 dark:bg-neutral-950 border-b border-neutral-300 dark:border-neutral-800 px-5 sm:px-6 py-3 flex items-center gap-2.5">
+        {/* Free Limit Notice Banner: Strong Gray Background */}
+        <div className="bg-neutral-100 dark:bg-neutral-850 border-b border-neutral-300 dark:border-neutral-700 px-5 sm:px-6 py-3 flex items-center gap-2.5">
           <Zap className="w-4 h-4 text-[#ff3d5c] shrink-0" />
           <div className="text-xs sm:text-sm text-neutral-800 dark:text-neutral-200 font-sans">
             <span className="font-bold text-[#ff3d5c] font-mono uppercase tracking-wider text-[11px] sm:text-xs mr-2">
@@ -135,7 +135,7 @@ print(response.choices[0].message.content)`;
         </div>
 
         {/* Modal Tabs */}
-        <div className="flex border-b border-neutral-200 dark:border-neutral-800 px-5 sm:px-6 bg-neutral-100 dark:bg-neutral-950 text-xs sm:text-sm font-mono">
+        <div className="flex border-b border-neutral-200 dark:border-neutral-700 px-5 sm:px-6 bg-neutral-100 dark:bg-neutral-850 text-xs sm:text-sm font-mono">
           <button
             type="button"
             onClick={() => setActiveTab('quickstart')}
@@ -165,9 +165,9 @@ print(response.choices[0].message.content)`;
           {activeTab === 'quickstart' && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
               {/* Python SDK Example */}
-              <div className="flex flex-col rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/60 p-4">
+              <div className="flex flex-col rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-850/70 p-4">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono text-neutral-600 dark:text-neutral-400 font-bold uppercase tracking-wider">
+                  <span className="text-xs font-mono text-neutral-600 dark:text-neutral-300 font-bold uppercase tracking-wider">
                     {t.modal.pythonExample}
                   </span>
                   <button
@@ -188,15 +188,15 @@ print(response.choices[0].message.content)`;
                     )}
                   </button>
                 </div>
-                <pre className="flex-1 p-4 rounded-md border border-neutral-300 dark:border-neutral-800 bg-neutral-950 text-neutral-100 font-mono text-xs overflow-x-auto leading-relaxed">
+                <pre className="flex-1 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 bg-neutral-950 text-neutral-100 font-mono text-xs overflow-x-auto leading-relaxed">
                   <code>{pythonSnippet}</code>
                 </pre>
               </div>
 
               {/* cURL Example */}
-              <div className="flex flex-col rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/60 p-4">
+              <div className="flex flex-col rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-850/70 p-4">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono text-neutral-600 dark:text-neutral-400 font-bold uppercase tracking-wider">
+                  <span className="text-xs font-mono text-neutral-600 dark:text-neutral-300 font-bold uppercase tracking-wider">
                     {t.modal.curlExample}
                   </span>
                   <button
@@ -217,7 +217,7 @@ print(response.choices[0].message.content)`;
                     )}
                   </button>
                 </div>
-                <pre className="flex-1 p-4 rounded-md border border-neutral-300 dark:border-neutral-800 bg-neutral-950 text-neutral-100 font-mono text-xs overflow-x-auto leading-relaxed">
+                <pre className="flex-1 p-4 rounded-md border border-neutral-300 dark:border-neutral-700 bg-neutral-950 text-neutral-100 font-mono text-xs overflow-x-auto leading-relaxed">
                   <code>{curlSnippet}</code>
                 </pre>
               </div>
@@ -227,29 +227,29 @@ print(response.choices[0].message.content)`;
           {activeTab === 'specs' && (
             <div className="space-y-5 text-xs font-mono">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5">
-                <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950">
-                  <span className="text-neutral-500 block text-[11px] mb-1">{t.modal.maxContext}</span>
+                <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800">
+                  <span className="text-neutral-500 dark:text-neutral-400 block text-[11px] mb-1">{t.modal.maxContext}</span>
                   <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
                     {model.context || 'Standard (~8k - 32k)'}
                   </span>
                 </div>
 
-                <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950">
-                  <span className="text-neutral-500 block text-[11px] mb-1">{t.modal.sweBench}</span>
+                <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800">
+                  <span className="text-neutral-500 dark:text-neutral-400 block text-[11px] mb-1">{t.modal.sweBench}</span>
                   <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
                     {model.sweScore || t.modal.unranked}
                   </span>
                 </div>
 
-                <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950">
-                  <span className="text-neutral-500 block text-[11px] mb-1">{t.filters.provider}</span>
+                <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800">
+                  <span className="text-neutral-500 dark:text-neutral-400 block text-[11px] mb-1">{t.filters.provider}</span>
                   <span className="text-sm font-bold text-neutral-900 dark:text-neutral-100 truncate block">
                     {model.provider}
                   </span>
                 </div>
 
-                <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950">
-                  <span className="text-neutral-500 block text-[11px] mb-1">{t.compare.status}</span>
+                <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800">
+                  <span className="text-neutral-500 dark:text-neutral-400 block text-[11px] mb-1">{t.compare.status}</span>
                   <div className="flex items-center gap-1.5 mt-1">
                     <span
                       className={`w-2 h-2 rounded-full ${
@@ -263,8 +263,8 @@ print(response.choices[0].message.content)`;
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/60">
-                <span className="text-neutral-500 block text-[11px] mb-2 font-bold uppercase tracking-wider">{t.modal.modalities}</span>
+              <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-850/70">
+                <span className="text-neutral-500 dark:text-neutral-300 block text-[11px] mb-2 font-bold uppercase tracking-wider">{t.modal.modalities}</span>
                 <div className="flex flex-wrap gap-2">
                   {model.type?.map(m => (
                     <span
@@ -277,8 +277,8 @@ print(response.choices[0].message.content)`;
                 </div>
               </div>
 
-              <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950/60">
-                <span className="text-neutral-500 block text-[11px] mb-2 font-bold uppercase tracking-wider">{t.filters.access}</span>
+              <div className="p-4 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-850/70">
+                <span className="text-neutral-500 dark:text-neutral-300 block text-[11px] mb-2 font-bold uppercase tracking-wider">{t.filters.access}</span>
                 <div className="flex flex-wrap gap-2">
                   {model.access?.map(acc => (
                     <span
@@ -294,8 +294,8 @@ print(response.choices[0].message.content)`;
           )}
         </div>
 
-        {/* Modal Footer: Solid Action Buttons */}
-        <div className="p-4 sm:p-5 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950 flex items-center justify-between gap-3">
+        {/* Modal Footer: Solid Action Buttons with Strong Gray */}
+        <div className="p-4 sm:p-5 border-t border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-850 flex items-center justify-between gap-3">
           {model.url ? (
             <a
               href={model.url}
@@ -313,7 +313,7 @@ print(response.choices[0].message.content)`;
           <button
             type="button"
             onClick={onClose}
-            className="px-5 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors cursor-pointer shadow-2xs"
+            className="px-5 py-2.5 rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 font-mono text-xs font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-750 transition-colors cursor-pointer shadow-2xs"
           >
             {t.modal.close}
           </button>
