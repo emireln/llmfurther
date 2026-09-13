@@ -4,6 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { BayerGlobe } from '../background/DitherGlobe';
 import { FooterDitherWaves } from '../background/FooterDitherWaves';
 import { CatLogo } from '../common/CatLogo';
+import { Tooltip } from '../common/Tooltip';
 import { ArrowUp } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -50,13 +51,15 @@ export const Footer: React.FC = () => {
               </p>
 
               <div className="flex items-center justify-center sm:justify-start gap-4 mt-2 text-xs font-mono">
-                <button
-                  onClick={scrollToTop}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-accent hover:border-accent/40 transition-colors"
-                >
-                  <span>Back to top</span>
-                  <ArrowUp className="w-3 h-3" />
-                </button>
+                <Tooltip content="Scroll back to top of directory" position="top">
+                  <button
+                    onClick={scrollToTop}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 hover:text-accent hover:border-accent/40 transition-colors cursor-pointer"
+                  >
+                    <span>Back to top</span>
+                    <ArrowUp className="w-3 h-3" />
+                  </button>
+                </Tooltip>
               </div>
             </div>
           </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { FilterState } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { CustomDropdown, DropdownOption } from '../common/CustomDropdown';
+import { Tooltip } from '../common/Tooltip';
 import { Search, X, RotateCcw } from 'lucide-react';
 
 interface ModelFiltersProps {
@@ -163,15 +164,17 @@ export const ModelFilters: React.FC<ModelFiltersProps> = ({
             onChange={val => onChange({ ...filters, sortBy: val as FilterState['sortBy'] })}
           />
 
-          {/* Clear Filters Button */}
+          {/* Clear Filters Button with Tooltip */}
           {hasActiveFilters && (
-            <button
-              onClick={resetFilters}
-              className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-500 hover:text-accent hover:border-accent/40 transition-colors shrink-0"
-              title={t.filters.clearAll}
-            >
-              <RotateCcw className="w-3.5 h-3.5" />
-            </button>
+            <Tooltip content={t.filters.clearAll} position="top">
+              <button
+                onClick={resetFilters}
+                className="p-2 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 text-neutral-500 hover:text-accent hover:border-accent/40 transition-colors shrink-0 cursor-pointer"
+                aria-label={t.filters.clearAll}
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+              </button>
+            </Tooltip>
           )}
         </div>
       </div>

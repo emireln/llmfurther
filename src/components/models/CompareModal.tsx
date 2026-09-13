@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ModelItem, getModelKey } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
+import { Tooltip } from '../common/Tooltip';
 import { X, ExternalLink, Trash2 } from 'lucide-react';
 
 interface CompareModalProps {
@@ -62,20 +63,25 @@ export const CompareModal: React.FC<CompareModalProps> = ({
 
           <div className="flex items-center gap-3">
             {models.length > 0 && (
-              <button
-                onClick={onClear}
-                className="inline-flex items-center gap-1 text-xs font-mono text-neutral-500 hover:text-accent transition-colors"
-              >
-                <Trash2 className="w-3.5 h-3.5" />
-                <span>{t.compare.clearCompare}</span>
-              </button>
+              <Tooltip content="Clear all compared models" position="bottom">
+                <button
+                  onClick={onClear}
+                  className="inline-flex items-center gap-1 text-xs font-mono text-neutral-500 hover:text-accent transition-colors cursor-pointer"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>{t.compare.clearCompare}</span>
+                </button>
+              </Tooltip>
             )}
-            <button
-              onClick={onClose}
-              className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <Tooltip content="Close comparison" position="bottom">
+              <button
+                onClick={onClose}
+                className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </Tooltip>
           </div>
         </div>
 
@@ -98,13 +104,15 @@ export const CompareModal: React.FC<CompareModalProps> = ({
                             <div className="font-bold text-sm truncate">{m.name || m.id}</div>
                             <div className="text-[11px] text-neutral-500 font-normal">{m.provider}</div>
                           </div>
-                          <button
-                            onClick={() => onRemove(getModelKey(m))}
-                            className="text-neutral-400 hover:text-accent p-1"
-                            title="Remove"
-                          >
-                            <X className="w-3.5 h-3.5" />
-                          </button>
+                          <Tooltip content="Remove from comparison" position="left">
+                            <button
+                              onClick={() => onRemove(getModelKey(m))}
+                              className="text-neutral-400 hover:text-accent p-1 cursor-pointer"
+                              aria-label="Remove model"
+                            >
+                              <X className="w-3.5 h-3.5" />
+                            </button>
+                          </Tooltip>
                         </div>
                       </th>
                     ))}

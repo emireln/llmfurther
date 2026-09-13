@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ModelItem } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { ModelLogo } from '../common/ModelLogo';
+import { Tooltip } from '../common/Tooltip';
 import { X, Copy, Check, ExternalLink, Zap } from 'lucide-react';
 
 interface ModelDetailModalProps {
@@ -111,12 +112,15 @@ print(response.choices[0].message.content)`;
             </div>
           </div>
 
-          <button
-            onClick={onClose}
-            className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
-          >
-            <X className="w-5 h-5" />
-          </button>
+          <Tooltip content={t.modal.close || "Close"} position="bottom">
+            <button
+              onClick={onClose}
+              className="p-1.5 rounded-lg text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </Tooltip>
         </div>
 
         {/* Free Limit Notice Banner */}
@@ -162,22 +166,24 @@ print(response.choices[0].message.content)`;
                 <span className="text-xs font-mono text-neutral-500 font-semibold uppercase tracking-wider">
                   {t.modal.pythonExample}
                 </span>
-                <button
-                  onClick={() => handleCopySnippet(pythonSnippet)}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 transition-colors"
-                >
-                  {copiedSnippet ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-emerald-500" />
-                      <span className="text-emerald-500 font-bold">{t.card.copied}</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5" />
-                      <span>{t.modal.copySnippet}</span>
-                    </>
-                  )}
-                </button>
+                <Tooltip content={copiedSnippet ? t.card.copied : t.modal.copySnippet} position="left">
+                  <button
+                    onClick={() => handleCopySnippet(pythonSnippet)}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-300 transition-colors cursor-pointer"
+                  >
+                    {copiedSnippet ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-emerald-500" />
+                        <span className="text-emerald-500 font-bold">{t.card.copied}</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" />
+                        <span>{t.modal.copySnippet}</span>
+                      </>
+                    )}
+                  </button>
+                </Tooltip>
               </div>
 
               <pre className="p-3.5 rounded-lg border border-neutral-200 dark:border-neutral-800 bg-neutral-900 text-neutral-100 font-mono text-xs overflow-x-auto leading-relaxed">

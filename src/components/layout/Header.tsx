@@ -1,6 +1,7 @@
 import { useLanguage } from '../../context/LanguageContext';
 import { useTheme } from '../../context/ThemeContext';
 import { CatLogo } from '../common/CatLogo';
+import { Tooltip } from '../common/Tooltip';
 import { Sun, Moon, Scale } from 'lucide-react';
 
 interface HeaderProps {
@@ -43,38 +44,42 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Language Toggle */}
           <div className="flex items-center rounded border border-neutral-200 dark:border-neutral-800 p-0.5 bg-neutral-100 dark:bg-neutral-900 text-xs font-mono">
-            <button
-              onClick={() => setLanguage('en')}
-              className={`px-2 py-1 rounded transition-colors ${
-                language === 'en'
-                  ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white font-semibold shadow-xs'
-                  : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300'
-              }`}
-              title="English"
-            >
-              EN
-            </button>
-            <button
-              onClick={() => setLanguage('pt-BR')}
-              className={`px-2 py-1 rounded transition-colors ${
-                language === 'pt-BR'
-                  ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white font-semibold shadow-xs'
-                  : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300'
-              }`}
-              title="Português do Brasil"
-            >
-              PT
-            </button>
+            <Tooltip content="Switch language to English" position="bottom">
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-2 py-1 rounded transition-colors cursor-pointer ${
+                  language === 'en'
+                    ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white font-semibold shadow-xs'
+                    : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300'
+                }`}
+              >
+                EN
+              </button>
+            </Tooltip>
+            <Tooltip content="Mudar idioma para Português" position="bottom">
+              <button
+                onClick={() => setLanguage('pt-BR')}
+                className={`px-2 py-1 rounded transition-colors cursor-pointer ${
+                  language === 'pt-BR'
+                    ? 'bg-white dark:bg-neutral-800 text-neutral-950 dark:text-white font-semibold shadow-xs'
+                    : 'text-neutral-500 hover:text-neutral-800 dark:hover:text-neutral-300'
+                }`}
+              >
+                PT
+              </button>
+            </Tooltip>
           </div>
 
           {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-            className="p-2 rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors"
-          >
-            {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-neutral-700" />}
-          </button>
+          <Tooltip content={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'} position="bottom">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="p-2 rounded border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors cursor-pointer"
+            >
+              {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-neutral-700" />}
+            </button>
+          </Tooltip>
         </div>
       </div>
     </header>
