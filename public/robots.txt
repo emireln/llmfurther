@@ -1,0 +1,8 @@
+# robots.txt for llmfurther
+# https://www.llmfurther.space
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.llmfurther.space/sitemap.xml
